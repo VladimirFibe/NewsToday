@@ -8,7 +8,7 @@
 import Foundation
 
 enum BrowseEvent {
-    case done
+    case done([News])
 }
 
 enum BrowseAction {
@@ -27,8 +27,6 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     
     private func login() async throws {
         let all: NewsEnvelope = try await APIClient.shared.request(.getNews)
-        all.articles.forEach {
-            print($0.title ?? "")
-        }
+        sendEvent(.done(all.articles))
     }
 }
