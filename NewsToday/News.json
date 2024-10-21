@@ -1,0 +1,266 @@
+{
+  "status": "ok",
+  "totalResults": 38,
+  "articles": [
+    {
+      "source": {
+        "id": "newsweek",
+        "name": "Newsweek"
+      },
+      "author": null,
+      "title": "Video Shows Aftermath of Firebomb Attack at Ruling Party HQ in Japan - Newsweek",
+      "description": "A man threw Molotov cocktails at the Liberal Democratic Party's headquarters, hitting a car and setting a brief blaze.",
+      "url": "https://www.newsweek.com/video-shows-aftermath-firebomb-ruling-party-japan-1971661",
+      "urlToImage": "https://d.newsweek.com/en/full/2499460/japan-liberal-democrats-headquarters-attacked.jpg",
+      "publishedAt": "2024-10-19T18:27:03Z",
+      "content": "Japanese authorities arrested a man who allegedly threw several firebombs at the country's ruling party headquarters on Saturday in Tokyo, according to local media reports.\r\nTokyo police arrested the… [+3511 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
+      "title": "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
+      "description": "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
+      "url": "https://www.reuters.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/",
+      "urlToImage": "https://www.reuters.com/resizer/v2/6VIKWAI5N5MERJGNZR6FFYFDOE.jpg?auth=50834e4d847562149d6e54127158ca0d6456905dfdb1a42f7aa031b102a74db9&height=1005&width=1920&quality=80&smart=true",
+      "publishedAt": "2024-10-19T17:40:44Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Edward Szekeres, Simone McCarthy, Sophie Tanno, Rosa Rahimi, Tori B. Powell",
+      "title": "The latest on Hamas leader’s death and war in the Middle East - CNN",
+      "description": "Following Hamas leader Yahya Sinwar’s death in Gaza, Israel has continued to barrage the strip as it also targets Hezbollah in Lebanon. Follow for live news updates.",
+      "url": "https://www.cnn.com/world/live-news/israel-hamas-lebanon-sinwar-gaza-iran-10-19-24/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-17t140911z-1346488079-rc2esw9jsl4k-rtrmadp-3-israel-palestinians-sinwar.JPG?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2024-10-19T17:38:00Z",
+      "content": "Hamas confirmed the death of its leader, Yahya Sinwar, in a video statement by senior official Khalil Al Hayya, who has served as chief negotiator for the militant group in talks for a potential Gaza… [+3158 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Liz Kocan",
+      "title": "Ngannou vs. Ferreira: How to watch the PFL Battle of the Giants tonight, full fight card and more - Yahoo Sports",
+      "description": "Here's what to know and how to watch the PFL Battle of the Giants this weekend.",
+      "url": "https://sports.yahoo.com/ngannou-vs-ferreira-how-to-watch-the-pfl-battle-of-the-giants-tonight-full-fight-card-and-more-105501017.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/gGV3UGIH1jxXkrl1MM0Gew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://s.yimg.com/os/creatr-uploaded-images/2024-10/bb866080-89d5-11ef-b9f5-7167e654a9b0",
+      "publishedAt": "2024-10-19T17:15:37Z",
+      "content": "Francis Ngannou will face off against Renan Ferreira during the Battle of the Giants on Oct. 19. (Cooper Neill/Getty Images)\r\nThe PFL Battle of the Giants will take place this Saturday, Oct. 19 in Ri… [+3551 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox 59"
+      },
+      "author": "Matt Adams, Russ McQuaid",
+      "title": "Delphi murders: Day 2 testimony includes former Delphi police chief, members of search party - FOX 59 Indianapolis",
+      "description": "DELPHI, Ind. — Delphi’s former police chief and two people who searched for Abby Williams and Libby German in 2017 testified Saturday in the Delphi murders trial. While Friday’s testimony primarily included insights from the girls’ families, Saturday’s sessio…",
+      "url": "https://fox59.com/delphi-trial/delphi-murders-day-2-testimony-includes-former-delphi-police-chief-members-of-search-party/",
+      "urlToImage": "https://fox59.com/wp-content/uploads/sites/21/2024/10/Delphi-Broll-ININDOF1ENC001_1_mxf_00.02.29.52.jpg?w=1280",
+      "publishedAt": "2024-10-19T17:06:55Z",
+      "content": "DELPHI, Ind. — Delphi’s former police chief and two people who searched for Abby Williams and Libby German in 2017 testified Saturday in the Delphi murders trial.\r\nWhile Friday’s testimony primarily … [+3146 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Chris Isidore",
+      "title": "Tentative deal announced to end Boeing strike - CNN",
+      "description": "A tentative deal has been reached to end the five-week-long strike at troubled aircraft maker Boeing, the union announced to its 33,000 striking members early Saturday.",
+      "url": "https://www.cnn.com/2024/10/19/business/boeing-deal-to-end-strike/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2171699212-copy.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2024-10-19T16:49:00Z",
+      "content": "A tentative deal has been reached to end the five-week-long strike at troubled aircraft maker Boeing, the union announced to its 33,000 striking members early Saturday.\r\nThe deal still needs to be ra… [+5261 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "The Weather Channel"
+      },
+      "author": "The Weather Channel",
+      "title": "Diablo Winds Fuel Destructive Fire In Oakland - The Weather Channel",
+      "description": "“Diablo” winds turned a small brush fire into a 5-alarm inferno in Oakland, forcing evacuations and power shutoffs, as fire conditions became more perilous. - Videos from The Weather Channel | weather.com",
+      "url": "https://weather.com/news/weather/video/hundreds-evacuate-as-diablo-winds-fan-keller-fire-flames",
+      "urlToImage": "https://v.w-x.co/1729356149055_KellerFireDiabloWinds_907d000a-c085-4fab-bd6d-76c649552fe8.jpg",
+      "publishedAt": "2024-10-19T16:42:45Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "ADAM SCHRECK, SAMY MAGDY",
+      "title": "A drone targets Israeli prime minister’s house while strikes in Gaza kill more than 50 - The Associated Press",
+      "description": "Israel’s government says a drone targeted Prime Minister Benjamin Netanyahu’s house on Saturday with no casualties. Fighting with Lebanon-based Hezbollah and Gaza-based Hamas is showing no pause after the killing of the mastermind of last year’s deadly Oct. 7…",
+      "url": "https://apnews.com/article/israel-hamas-war-news-10-18-2024-c49911f11a40b7d81b21bc8568ecfe11",
+      "urlToImage": "https://dims.apnews.com/dims4/default/95f918f/2147483647/strip/true/crop/8640x4860+0+450/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2Fae%2F513007406e8a89dddb0fa9435275%2F001b760acb2f4f4cb72a399483e96f72",
+      "publishedAt": "2024-10-19T16:36:00Z",
+      "content": "JERUSALEM (AP) Israels government said a drone targeted Prime Minister Benjamin Netanyahus house Saturday, with no casualties, as fighting with Lebanon-based Hezbollah and Gaza -based Hamas showed no… [+6468 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Sports Illustrated"
+      },
+      "author": "Tom Dierberger",
+      "title": "Steelers Make QB Decision Between Justin Fields, Russell Wilson for Week 7 vs. Jets - Sports Illustrated",
+      "description": "Pittsburgh coach Mike Tomlin reportedly has made up his mind.",
+      "url": "https://www.si.com/nfl/steelers-decision-justin-fields-russell-wilson-jets-week-7",
+      "urlToImage": "https://images2.minutemediacdn.com/image/upload/c_crop,w_8256,h_4644,x_0,y_171/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/images/ImagnImages/mmsport/si/01jajpgdh21qg4bkja2y.jpg",
+      "publishedAt": "2024-10-19T15:45:09Z",
+      "content": "The Pittsburgh Steelers reportedly have made a decision for who starts under center Sunday night against the New York Jets.\r\nNFL Network's Ian Rapoport reported Saturday that the Steelers are plannin… [+1402 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNET"
+      },
+      "author": null,
+      "title": "Bose SoundLink Home Review: Big Sound From a Sleek Little Bluetooth Speaker - CNET",
+      "description": "The successor to Bose's SoundLink Mini 2 Bluetooth speaker sounds very impressive for its compact size.",
+      "url": "https://www.cnet.com/tech/home-entertainment/bose-soundlink-home-review-sleek-little-bluetooth-speaker-big-sound/",
+      "urlToImage": "https://www.cnet.com/a/img/resize/4ca15a6efa7bc378e59e6e569dd294edcd6b52a8/hub/2024/10/18/46cc2761-6e57-4060-ae33-6f16412d4fc3/bose-soundlink-home-11.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "publishedAt": "2024-10-19T15:00:16Z",
+      "content": "The best way to describe Bose's new SoundLink Home ($219) wireless speaker is as the spiritual successor to the company's SoundLink Mini 2 speaker, which was quietly discontinued in late 2018. Availa… [+6100 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Miami Herald"
+      },
+      "author": "MIAMI HERALD HURRICANE BOT",
+      "title": "Tropical Storm Oscar: Saturday, Oct 19 status update from the NHC - Yahoo! Voices",
+      "description": "Here’s the latest on Category 1 Hurricane Oscar",
+      "url": "https://www.miamiherald.com/news/weather/hurricane/article294226914.html",
+      "urlToImage": "https://media.zenfs.com/en/miami_herald_mcclatchy_975/a7d113a16b195595ff13a67c10a28224",
+      "publishedAt": "2024-10-19T15:00:00Z",
+      "content": "Article first published: Saturday, Oct. 19, 2024, 11 a.m. ET\r\nArticle last updated: Saturday, Oct. 19, 2024, 2 p.m. ET\r\nAccording to the National Hurricane Centers 2 pm Saturday advisory, Oscar has r… [+2124 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Ashley Strickland",
+      "title": "Peer inside the underwater volcanic caves where life thrives - CNN",
+      "description": "This week, marvel at giant tube worms living beneath hot springs on the ocean floor, watch SpaceX catch a rocket booster, learn why humans love carbs, and more.",
+      "url": "https://www.cnn.com/2024/10/19/science/subseafloor-ecosystem-science-newsletter-wt/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/fkt230629-s0552-20230713t195602z-experiments.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2024-10-19T15:00:00Z",
+      "content": "Editors note: A version of this story appeared in CNNs Wonder Theory science newsletter. To get it in your inbox, sign up for free here.\r\nA mile and a half beneath the oceans surface, the seafloor se… [+5403 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Deadline"
+      },
+      "author": "Anthony D'Alessandro",
+      "title": "‘Smile 2’ Happier With $23M Opening; A24’s ‘We Live In Time’ Making Dime With $4M+, ‘Anora’ Wows With Massive $105K Theater Average – Saturday Box Office - Deadline",
+      "description": "'Smile 2' made $2.5 million in previews as it debuted in its first box office weekend. If it's lucky, it will open to north of $20M.",
+      "url": "http://deadline.com/2024/10/box-office-smile-2-1236120024/",
+      "urlToImage": "https://deadline.com/wp-content/uploads/2024/10/MCDSMTW_PA046-e1729284673207.jpg?w=1024",
+      "publishedAt": "2024-10-19T14:49:00Z",
+      "content": "SATURDAY AM: Paramount’s $28M production Smile 2is in great shape with a $23M opening after a $9.4M Friday and a B CinemaScore. That’s better than the B- on the first one. No one’s projections show t… [+10118 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": null,
+      "title": "'You see us burning, you stay silent': Family’s agony over mother and sons burned to death in Gaza tent - BBC.com",
+      "description": "Ahmed al-Dalou lost his wife and two sons after an Israeli strike burned their tent near Gaza’s Al-Aqsa hospital.",
+      "url": "https://www.bbc.com/news/articles/cr54y0qplgvo",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/94c4/live/fa432d70-8e27-11ef-a28e-9fec83ff5a91.jpg",
+      "publishedAt": "2024-10-19T14:40:03Z",
+      "content": "Sha'aban al-Dalou - seen here in a selfie he took with members of his family - was killed when an Israeli strike set fire to his tent in central Gaza\r\nWarning: This piece contains graphic description… [+6291 chars]"
+    },
+    {
+      "source": {
+        "id": "usa-today",
+        "name": "USA Today"
+      },
+      "author": "Eric Lagatta",
+      "title": "Orionids meteor shower hits peak activity this weekend: When and where to watch - USA TODAY",
+      "description": "Skygazers should have a chance to see the Orionids, one of the year's most beautiful meteor showers, just in time for Halloween.",
+      "url": "https://www.usatoday.com/story/news/nation/2024/10/18/orionid-meteor-shower-peak-2024/75702368007/",
+      "urlToImage": "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/10/16/USAT/75702451007-20191023-t-140625-z-1826050293-rc-17-b-1-d-05-ac-0-rtrmadp-3-spacemeteors.JPG?crop=1191,670,x0,y56&width=1191&height=670&format=pjpg&auto=webp",
+      "publishedAt": "2024-10-19T13:53:15Z",
+      "content": "As long as the moon and skies are all treats and no tricks, skygazers should have a chance to see the Orionids, one of the year's most striking meteor showers, just in time for Halloween.\r\nThe Orioni… [+4195 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "POLITICO.eu"
+      },
+      "author": "Giedre Peseckyte",
+      "title": "North Korean troops in Ukraine war called ‘huge’ escalation risk - POLITICO Europe",
+      "description": "South Korea’s National Intelligence Service said on Friday that North Korea had already deployed 1,500 special forces troops to Russia.",
+      "url": "https://www.politico.eu/article/north-korea-russia-ukraine-war-called-huge-escalation-risk/",
+      "urlToImage": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2024/10/19/GettyImages-1661664309-scaled.jpg",
+      "publishedAt": "2024-10-19T13:50:00Z",
+      "content": "Both the Kremlin and Pyongyang deny they have engaged in military transfers. And NATO Secretary-General Mark Rutte said on Friday that he could not confirm reports that North Koreans are actively now… [+1369 chars]"
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Tropical Storm Nadine to make landfall Saturday in Belize - CBS News",
+      "description": "The Atlantic Hurricane season has been busy with 15 named storms already forming this year. The season runs through Nov. 30.",
+      "url": "https://www.cbsnews.com/news/tropical-storm-nadine-landfall/",
+      "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2024/10/19/5db52932-976f-4deb-823b-5c124a93e0ca/thumbnail/1200x630/9839357237b8c51d1722b13219c07759/disturbances.png?v=edba3a63b5392b4c81ae19d894992d91",
+      "publishedAt": "2024-10-19T13:22:45Z",
+      "content": "Two tropical storms formed in the Caribbean on Sunday, adding to a very busy end of the Atlantic hurricane season.\r\nTropical Storm Nadine formed early in the day in the western Caribbean and is movin… [+1803 chars]"
+    },
+    {
+      "source": {
+        "id": "espn",
+        "name": "ESPN"
+      },
+      "author": "ESPN",
+      "title": "Betting tips for Patriots vs. Jaguars - ESPN",
+      "description": "Betting Patriots-Jaguars in the 2024 NFL London Games? Here's what you need to know.",
+      "url": "https://www.espn.com/espn/betting/story/_/id/41868440/new-england-patriots-vs-jacksonville-jaguars-sunday-nfl-betting-odds-picks-lines",
+      "urlToImage": "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F1018%2Fr1402226_1296x729_16%2D9.jpg",
+      "publishedAt": "2024-10-19T13:06:18Z",
+      "content": "Oct 19, 2024, 09:00 AM ET\r\nWeek 7 of the 2024 season get another early Sunday start as the Jacksonville Jaguars (1-5) face the New England Patriots (1-5) in their second straight game in London from … [+3338 chars]"
+    },
+    {
+      "source": {
+        "id": "techcrunch",
+        "name": "TechCrunch"
+      },
+      "author": "Kyle Wiggers",
+      "title": "Claude: Everything you need to know about Anthropic’s AI - TechCrunch",
+      "description": "Anthropic, the AI vendor second in size only to OpenAI, has a powerful family of generative AI models called Claude. These models can perform a range of",
+      "url": "https://techcrunch.com/2024/10/19/claude-everything-you-need-to-know-about-anthropics-ai/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2024/06/YouTube-Thumb-Text-2-3.png?resize=1200,675",
+      "publishedAt": "2024-10-19T13:00:00Z",
+      "content": "Anthropic, the AI vendor second in size only to OpenAI, has a powerful family of generative AI models called Claude. These models can perform a range of tasks, from captioning images and writing emai… [+4929 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": "Dave Sherwood",
+      "title": "Cuba's electrical grid collapses for second time, entire country again without power - Reuters Canada",
+      "description": "Cuba's government blames weeks of worsening blackouts on deteriorating infrastructure, fuel shortages and rising demand.",
+      "url": "https://www.reuters.com/world/americas/cubas-electrical-grid-collapses-second-time-entire-country-again-without-power-2024-10-19/",
+      "urlToImage": "https://www.reuters.com/resizer/v2/H3YDF2OABFJURCBQT4C645YG5I.jpg?auth=69ca999b9ac0f37713c8b2df9fc06703515e17a62a8be6bcb9a7df30814a158d&height=1005&width=1920&quality=80&smart=true",
+      "publishedAt": "2024-10-19T12:45:05Z",
+      "content": null
+    }
+  ]
+}

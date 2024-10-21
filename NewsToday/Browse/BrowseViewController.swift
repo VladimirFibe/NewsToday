@@ -43,25 +43,3 @@ class BrowseViewController: UITableViewController {
             }.store(in: &bag)
     }
 }
-
-final class BrowseCell: UITableViewCell {
-    static let identifier = "BrowseCell"
-    
-    public func configure(with news: News) {
-        textLabel?.text = news.title
-    }
-}
-
-struct News: Decodable {
-  let author: String?
-  let title: String?
-  let description: String?
-  let urlToImage: String?
-  let url: String?
-}
-
-struct NewsEnvelope: Decodable {
-  let status: String
-  let totalResults: Int
-  let articles: [News]
-}
