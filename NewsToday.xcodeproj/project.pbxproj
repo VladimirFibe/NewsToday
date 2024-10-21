@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		450A236E2CC6C41C0067CE8C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 450A236D2CC6C41C0067CE8C /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		450A236D2CC6C41C0067CE8C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		45D206F22CC573B7000DCDA9 /* NewsToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,6 +50,7 @@
 		45D206E92CC573B7000DCDA9 = {
 			isa = PBXGroup;
 			children = (
+				450A236D2CC6C41C0067CE8C /* README.md */,
 				45D206F42CC573B7000DCDA9 /* NewsToday */,
 				45D206F32CC573B7000DCDA9 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450A236E2CC6C41C0067CE8C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
