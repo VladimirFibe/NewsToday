@@ -27,6 +27,6 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     
     private func login() async throws {
         let result: NewsEnvelope = try await APIClient.shared.request(.getNews)
-        sendEvent(.done(result.articles))
+//        sendEvent(.done(result.articles))
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class BrowseViewController: UITableViewController {
-    private var news: [News] = []
+    private var news = Bundle.main.decode([News].self, from: "News.json")
     private var bag = Bag()
     private let store = BrowseStore()
     override func viewDidLoad() {
