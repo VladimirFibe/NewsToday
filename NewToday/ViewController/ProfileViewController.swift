@@ -90,6 +90,17 @@ class ProfileViewController: UIViewController {
         element.setImage(UIImage(named: "signout 1"), for: .normal)
     
         
+        let button = {
+            var configuration = UIButton.Configuration.filled()
+            configuration.image = UIImage(systemName: "line.3.horizontal.decrease.circle")!
+                .applyingSymbolConfiguration(.init(pointSize: 100))
+            configuration.cornerStyle = .medium
+            configuration.baseBackgroundColor = .darkGray
+            configuration.contentInsets = .zero
+            let button = UIButton(configuration: configuration)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
         
         
 //        var configuration = UIButton.Configuration.filled()
