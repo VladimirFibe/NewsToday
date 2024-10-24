@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
         let element = UILabel()
         element.text = "Dev P"
         element.textColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
-        element.font = UIFont(name: "Intel", size: 16)
+        element.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         element.textAlignment = .left
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
         let element = UILabel()
         element.text = "dev@gmail.com"
         element.textColor = UIColor(red: 124/255, green: 130/255, blue: 161/255, alpha: 1)
-        element.font = UIFont(name: "Intel", size: 16)
+        element.font = UIFont.systemFont(ofSize: 16)
         element.textAlignment = .left
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -81,38 +81,21 @@ class ProfileViewController: UIViewController {
    
     
     private lazy var signOutButton: UIButton = {
-        let element = UIButton()
-        element.backgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
 
-        element.setTitle("Sign Out", for: .normal)
-        element.titleLabel?.font = UIFont(name: "Intel", size: 16)
-        element.setTitleColor(UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1), for: .normal)
-        element.setImage(UIImage(named: "signout 1"), for: .normal)
-    
-        
-        let button = {
-            var configuration = UIButton.Configuration.filled()
-            configuration.image = UIImage(systemName: "line.3.horizontal.decrease.circle")!
-                .applyingSymbolConfiguration(.init(pointSize: 100))
-            configuration.cornerStyle = .medium
-            configuration.baseBackgroundColor = .darkGray
-            configuration.contentInsets = .zero
-            let button = UIButton(configuration: configuration)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            return button
-        }()
-        
-        
-//        var configuration = UIButton.Configuration.filled()
-//        configuration.title = "Title"
-//        configuration.subtitle = "Subtitle"
-//        configuration.image = UIImage(systemName: "swift")
-//        configuration.titlePadding = 10
-//        configuration.imagePadding = 10
+        var configuration = UIButton.Configuration.filled()
+        var container = AttributeContainer()
+        container.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        container.foregroundColor = UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1)
+        configuration.attributedTitle = AttributedString("Sign Out", attributes: container)
+        configuration.image = UIImage(named: "signout")
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 205
+//        configuration.cornerStyle = .small
+        configuration.background.cornerRadius = 12
+        configuration.baseBackgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
 //        configuration.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 20, bottom: 2, trailing: 20)
-        
-        
-        element.layer.cornerRadius = 12
+    
+        let element = UIButton(configuration: configuration)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()

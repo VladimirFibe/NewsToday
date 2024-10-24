@@ -34,6 +34,19 @@ class LanguageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    let button = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.image = UIImage(systemName: "line.3.horizontal.decrease.circle")!
+            .applyingSymbolConfiguration(.init(pointSize: 100))
+        configuration.cornerStyle = .medium
+        configuration.baseBackgroundColor = .darkGray
+        configuration.contentInsets = .zero
+        let button = UIButton(configuration: configuration)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
         element.text = "Language"
@@ -56,6 +69,7 @@ class LanguageViewController: UIViewController {
     private func setupViews() {
         view.addSubview(backButton)
         view.addSubview(titleLabel)
+        view.addSubview(button)
         
     }
     
@@ -72,7 +86,8 @@ class LanguageViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             
             
-            
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
         ])
     }
