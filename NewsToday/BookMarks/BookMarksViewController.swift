@@ -9,13 +9,20 @@ import UIKit
 
 
 // Mock данные
-let mockArticles: [News] = [] // [
-//    News(author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
-//         title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
-//         description: "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
-//         urlToImage: "https://www.reuters.com/resizer/v2/6VIKWAI5N5MERJGNZR6FFYFDOE.jpg?auth=50834e4d847562149d6e54127158ca0d6456905dfdb1a42f7aa031b102a74db9&height=1005&width=1920&quality=80&smart=true",
-//            url: "https://www.reuter.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/"),
-//       ]
+let mockArticles: [News] =  [
+    News(sourse: Sourse(id: "reuters",
+                                name: "Reuters"), author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
+         title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
+        description: "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
+        urlToImage: "emptyStatePic",
+           url: "https://www.reuter.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/"),
+    News(sourse: Sourse(id: "reuters",
+                                                                                                                                                  name: "Reuters"), author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
+                                                                                                                           title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
+                                                                                                                          description: "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
+                                                                                                                          urlToImage: "emptyStatePic",
+                                                                                                                             url: "https://www.reuter.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/")
+      ]
 
 
 class BookMarksViewController: UIViewController {
@@ -27,7 +34,7 @@ class BookMarksViewController: UIViewController {
         let element = UILabel()
         element.font = UIFont(name: "Inter-Bold", size: 30)
 
-        element.textColor =  UIColor(red:0.2, green: 0.21, blue: 0.28, alpha:1)
+        element.textColor =  .blackPrimary
         element.text = "Bookmarks"
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -36,7 +43,7 @@ class BookMarksViewController: UIViewController {
     private let describeLabel: UILabel = {
         let element = UILabel()
         element.font = UIFont(name: "Inter-Regular", size: 16)
-        element.textColor = UIColor(red:0.49, green: 0.51, blue: 0.63, alpha:1)
+        element.textColor = .greyPrimary
         element.text = "Saved articles to the library"
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -51,14 +58,12 @@ class BookMarksViewController: UIViewController {
     private let headerHeightWithNoData: CGFloat = 350
     private let headerHeightWithData: CGFloat = 0
 
-    let identifire = "bookMarksCellid"
 
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         setupView()
 
@@ -75,9 +80,11 @@ class BookMarksViewController: UIViewController {
         
         
         bookMarksTableView.delegate = self
-        bookMarksTableView.register(BookMarksCell.self, forCellReuseIdentifier: identifire)
+        bookMarksTableView.register(BookMarksCell.self, forCellReuseIdentifier: BookMarksCell.identifire)
         bookMarksTableView.dataSource = self
         bookMarksTableView.translatesAutoresizingMaskIntoConstraints = false
+        bookMarksTableView.separatorStyle = .none
+
 
 
         NSLayoutConstraint.activate([
@@ -90,7 +97,7 @@ class BookMarksViewController: UIViewController {
             
             bookMarksTableView.topAnchor.constraint(equalTo: describeLabel.bottomAnchor, constant: 32),
             bookMarksTableView.leadingAnchor.constraint(equalTo: describeLabel.leadingAnchor),
-            bookMarksTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            bookMarksTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             bookMarksTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
                 ])
         
@@ -99,6 +106,8 @@ class BookMarksViewController: UIViewController {
         bookMarksTableView.tableHeaderView = createHeaderView()
     }
 
+    // MARK: - createHeaderView
+    
     private func createHeaderView() -> UIView {
         let headerView = UIView()
         
@@ -162,18 +171,28 @@ class BookMarksViewController: UIViewController {
 
 extension BookMarksViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let text = news[indexPath.row].title
+          let width = tableView.frame.width
+          let size = CGSize(width: width, height: .greatestFiniteMagnitude)
+        
+          let minHeight: CGFloat = 70
+          let estimatedHeight = (text! as NSString).boundingRect(with: size,
+                                                                options: .usesLineFragmentOrigin,
+                                                                attributes: [.font: UIFont.systemFont(ofSize: 16)],
+                                                                context: nil).height
+          
+        return max(estimatedHeight + 80, minHeight)
+      }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifire, for: indexPath)
-        let news = news[indexPath.row]
-         
-        guard let BookMarksCell = cell as? BookMarksCell else {
-             return cell
-         }
+        let cell = tableView.dequeueReusableCell(withIdentifier: BookMarksCell.identifire, for: indexPath) as! BookMarksCell
+        cell.configure(with: news[indexPath.row])
         return cell
         
     }

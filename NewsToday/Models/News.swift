@@ -8,6 +8,7 @@
 import Foundation
 
 struct News: Decodable {
+  let sourse: Sourse
   let author: String?
   let title: String?
   let description: String?
@@ -19,4 +20,9 @@ struct NewsEnvelope: Decodable {
   let status: String
   let totalResults: Int
   let articles: [News]
+}
+
+struct Sourse: Codable {
+    let id: String?
+    let name: String?
 }
