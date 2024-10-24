@@ -36,7 +36,7 @@ extension OnboardingPageController {
     func setup() {
         dataSource = self
         delegate = self
-        
+        view.backgroundColor = .blue
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
 
         let page1 = OnboardingViewController(imageName: "photo0",
