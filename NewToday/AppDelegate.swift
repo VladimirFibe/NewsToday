@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NewsToday
+//  NewToday
 //
-//  Created by Vladimir Fibe on 20.10.2024.
+//  Created by Александр Гуркин on 24.10.2024.
 //
 
 import UIKit
