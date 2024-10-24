@@ -30,13 +30,19 @@ class BookMarksCell: UITableViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        imageIV.layer.cornerRadius = 12
+        imageIV.layer.masksToBounds = true
+        
+        
         addSubview(imageIV)
         addSubview(nameLabel)
         addSubview(titleLabel)
         
         
-        imageIV.layer.cornerRadius = 12
         
+        
+        imageIV.contentMode = .scaleAspectFill
+
         nameLabel.font = UIFont(name: "Inter-Regular", size: 14)
         nameLabel.textColor = .greyPrimary
         
@@ -52,12 +58,12 @@ class BookMarksCell: UITableViewCell {
             imageIV.widthAnchor.constraint(equalToConstant: 96),
             imageIV.heightAnchor.constraint(equalToConstant: 96),
             
-            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: imageIV.trailingAnchor, constant: 16),
+            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: imageIV.trailingAnchor, constant: 15),
             
-            titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 ])
         
         

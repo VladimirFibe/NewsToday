@@ -11,17 +11,26 @@ import UIKit
 // Mock данные
 let mockArticles: [News] =  [
     News(sourse: Sourse(id: "reuters",
-                                name: "Reuters"), author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
+                        name: "Reuters"),
+         author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
          title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
-        description: "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
-        urlToImage: "emptyStatePic",
-           url: "https://www.reuter.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/"),
-    News(sourse: Sourse(id: "reuters",
-                                                                                                                                                  name: "Reuters"), author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
-                                                                                                                           title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
-                                                                                                                          description: "Democrat Kamala Harris and Republican Donald Trump hit the campaign trail on Saturday, pressing their case with voters from Georgia to Pennsylvania who are already starting to cast ballots in the U.S. presidential election.",
-                                                                                                                          urlToImage: "emptyStatePic",
-                                                                                                                             url: "https://www.reuter.com/world/us/harris-trump-court-early-voters-usher-lizzo-campaign-trail-2024-10-19/")
+         description: nil,
+        urlToImage: "1",
+         url: nil),
+    News(sourse: Sourse(id: "cnn",
+                        name: "CNN"),
+         author: "Edward Szekeres, Simone McCarthy, Sophie Tanno, Rosa Rahimi, Tori B. Powell",
+         title: "The latest on Hamas leader’s death and war in the Middle East - CNN",
+         description: nil,
+         urlToImage: "2",
+         url:nil),
+    News(sourse: Sourse(id: nil,
+                        name: "Yahoo Entertainment"),
+         author: "Liz Kocan",
+         title: "Ngannou vs. Ferreira: How to watch the PFL Battle of the Giants tonight, full fight card and more - Yahoo Sports",
+         description: nil,
+         urlToImage: "3",
+         url:nil),
       ]
 
 
@@ -65,6 +74,7 @@ class BookMarksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+
         setupView()
 
     }
