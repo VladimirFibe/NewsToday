@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3CFA092CC9F46F00F237BE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CFA082CC9F46F00F237BE /* ProfileViewController.swift */; };
+		8F3CFA0B2CC9F47F00F237BE /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CFA0A2CC9F47F00F237BE /* TermsViewController.swift */; };
+		8F3CFA0D2CC9F49300F237BE /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CFA0C2CC9F49300F237BE /* LanguageViewController.swift */; };
+		8F3CFA102CC9F4B800F237BE /* UIButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CFA0F2CC9F4B800F237BE /* UIButtons.swift */; };
 		8F6634812CC9D6BC00EE36E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6634802CC9D6BC00EE36E2 /* AppDelegate.swift */; };
 		8F6634832CC9D6BC00EE36E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6634822CC9D6BC00EE36E2 /* SceneDelegate.swift */; };
 		8F6634852CC9D6BC00EE36E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6634842CC9D6BC00EE36E2 /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F3CFA082CC9F46F00F237BE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8F3CFA0A2CC9F47F00F237BE /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		8F3CFA0C2CC9F49300F237BE /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		8F3CFA0F2CC9F4B800F237BE /* UIButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtons.swift; sourceTree = "<group>"; };
 		8F66347D2CC9D6BC00EE36E2 /* NewToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6634802CC9D6BC00EE36E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6634822CC9D6BC00EE36E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F3CFA072CC9F30F00F237BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CFA082CC9F46F00F237BE /* ProfileViewController.swift */,
+				8F3CFA0A2CC9F47F00F237BE /* TermsViewController.swift */,
+				8F3CFA0C2CC9F49300F237BE /* LanguageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8F3CFA0E2CC9F49800F237BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CFA0F2CC9F4B800F237BE /* UIButtons.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8F6634742CC9D6BC00EE36E2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +82,8 @@
 		8F66347F2CC9D6BC00EE36E2 /* NewToday */ = {
 			isa = PBXGroup;
 			children = (
+				8F3CFA0E2CC9F49800F237BE /* Extensions */,
+				8F3CFA072CC9F30F00F237BE /* ViewController */,
 				8F6634802CC9D6BC00EE36E2 /* AppDelegate.swift */,
 				8F6634822CC9D6BC00EE36E2 /* SceneDelegate.swift */,
 				8F6634842CC9D6BC00EE36E2 /* ViewController.swift */,
@@ -139,8 +167,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F6634852CC9D6BC00EE36E2 /* ViewController.swift in Sources */,
+				8F3CFA102CC9F4B800F237BE /* UIButtons.swift in Sources */,
 				8F6634812CC9D6BC00EE36E2 /* AppDelegate.swift in Sources */,
+				8F3CFA0D2CC9F49300F237BE /* LanguageViewController.swift in Sources */,
+				8F3CFA092CC9F46F00F237BE /* ProfileViewController.swift in Sources */,
 				8F6634832CC9D6BC00EE36E2 /* SceneDelegate.swift in Sources */,
+				8F3CFA0B2CC9F47F00F237BE /* TermsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
