@@ -8,6 +8,9 @@
 import UIKit
 
 
+
+
+
 class BookMarksViewController: UIViewController {
     
     // MARK: - UI
@@ -15,7 +18,7 @@ class BookMarksViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        element.font = UIFont(name: "Inter-Bold", size: 30)
 
         element.textColor =  UIColor(red:0.2, green: 0.21, blue: 0.28, alpha:1)
         element.text = "Bookmarks"
@@ -35,7 +38,8 @@ class BookMarksViewController: UIViewController {
     
     // MARK: - Property
     
-    private var news: [News] = []
+    //private var news: [News] = []
+    private var news = [1, 2, 3]
 
     let identifire = "bookMarksCellid"
 
@@ -63,8 +67,7 @@ class BookMarksViewController: UIViewController {
 //        bookMarksTableView.delegate = self
         bookMarksTableView.register(BookMarksCell.self, forCellReuseIdentifier: identifire)
         bookMarksTableView.dataSource = self
-        bookMarksTableView.backgroundColor = .blue
-        describeLabel.backgroundColor = .yellow
+
         
        
         
@@ -91,13 +94,17 @@ class BookMarksViewController: UIViewController {
 extension BookMarksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return news.count
-        return 3
+        return news.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifire, for: indexPath)
-
+        let news = news[indexPath.row]
+         
+        guard let BookMarksCell = cell as? BookMarksCell else {
+             return cell
+         }
         return cell
         
     }
@@ -108,6 +115,6 @@ extension BookMarksViewController: UITableViewDataSource {
     extension BookMarksViewController: UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+           
         }
     }
