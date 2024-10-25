@@ -211,6 +211,17 @@ extension BookMarksViewController: UITableViewDataSource {
  //MARK: - UiTableViewDelegate
 
     extension BookMarksViewController: UITableViewDelegate {
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {(action, view, complectionHandler) in
+                self.news.remove(at: indexPath.row)
+                self.bookMarksTableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                complectionHandler(true)
+            }
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            
