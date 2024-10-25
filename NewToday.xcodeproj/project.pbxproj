@@ -75,6 +75,8 @@
 			children = (
 				4562BF782CCB3FCB00D033DA /* Fonts */,
 				8F6634862CC9D6BC00EE36E2 /* Main.storyboard */,
+				4562BF7B2CCB3FEA00D033DA /* News.json */,
+				4562BF792CCB3FE000D033DA /* News.swift */,
 				8F6634892CC9D6BF00EE36E2 /* Assets.xcassets */,
 				8F66348B2CC9D6BF00EE36E2 /* LaunchScreen.storyboard */,
 				4562BF7D2CCB3FFE00D033DA /* Store.swift */,
@@ -164,8 +166,6 @@
 				4562BF642CCB395100D033DA /* App */,
 				4562BF6B2CCB3F7A00D033DA /* API */,
 				8F66348E2CC9D6BF00EE36E2 /* Info.plist */,
-				4562BF7B2CCB3FEA00D033DA /* News.json */,
-				4562BF792CCB3FE000D033DA /* News.swift */,
 				8F3CFA0E2CC9F49800F237BE /* Extensions */,
 				8F3CFA072CC9F30F00F237BE /* ViewControllers */,
 				4562BF632CCB38CC00D033DA /* Supporting Files */,
