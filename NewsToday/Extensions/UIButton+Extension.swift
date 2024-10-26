@@ -1,11 +1,10 @@
 //
-//  UIButtons.swift
-//  NewToday
+//  UIButton+Extension.swift
+//  NewsToday
 //
-//  Created by Александр Гуркин on 24.10.2024.
+//  Created by Vladimir Fibe on 26.10.2024.
 //
 
-import Foundation
 import UIKit
 
 extension UIButton {

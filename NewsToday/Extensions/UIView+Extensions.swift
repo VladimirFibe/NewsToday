@@ -1,8 +1,8 @@
 //
-//  CustomHeader.swift
-//  NewToday
+//  UIView+Extensions.swift
+//  NewsToday
 //
-//  Created by Vika on 25.10.24.
+//  Created by Vladimir Fibe on 26.10.2024.
 //
 
 import UIKit
