@@ -66,11 +66,3 @@ extension OnboardingViewController {
         ])
     }
 }
-@available(iOS 17.0, *)
-#Preview {
-//    OnboardingViewController(imageName: "photo1",
-//                                         titleText: "Welcome",
-//                                         subtitleText: "To the Swift Arcade. Your place for learning Swift.")
-    
-    OnboardingPageController()
-}

@@ -30,7 +30,7 @@ class CustomTabBarController: UITabBarController {
         let bookMarksVC = BookMarksViewController()
         bookMarksVC.tabBarItem.image = UIImage(named: "bookmark")
         
-        let profileVC = ProfileViewController()
+        let profileVC = UINavigationController(rootViewController: ProfileViewController())
         profileVC.tabBarItem.image = UIImage(named: "user")
         
         if browseVC.tabBarItem.image == nil {
