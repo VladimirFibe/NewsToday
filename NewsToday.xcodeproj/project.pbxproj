@@ -29,6 +29,9 @@
 		458D232E2CCC99910088AA02 /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D232C2CCC99910088AA02 /* OnboardingPageController.swift */; };
 		458D232F2CCC99910088AA02 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D232D2CCC99910088AA02 /* OnboardingViewController.swift */; };
 		458D23312CCC99AE0088AA02 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23302CCC99AE0088AA02 /* Bundle+Extension.swift */; };
+		458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23392CCCB5D10088AA02 /* APIError.swift */; };
+		458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D233A2CCCB5D10088AA02 /* APIRoute.swift */; };
+		458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23382CCCB5D10088AA02 /* APIClient.swift */; };
 		8F5A8E112CCC0A9E00E98CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A8E102CCC0A9E00E98CB7 /* AppDelegate.swift */; };
 		8F5A8E132CCC0A9E00E98CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A8E122CCC0A9E00E98CB7 /* SceneDelegate.swift */; };
 		8F5A8E1A2CCC0AA200E98CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A8E192CCC0AA200E98CB7 /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		458D232C2CCC99910088AA02 /* OnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageController.swift; sourceTree = "<group>"; };
 		458D232D2CCC99910088AA02 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		458D23302CCC99AE0088AA02 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		458D23382CCCB5D10088AA02 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		458D23392CCCB5D10088AA02 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		458D233A2CCCB5D10088AA02 /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
 		8F5A8E0D2CCC0A9E00E98CB7 /* NewsToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5A8E102CCC0A9E00E98CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F5A8E122CCC0A9E00E98CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +200,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		458D233E2CCCB5D90088AA02 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				458D23382CCCB5D10088AA02 /* APIClient.swift */,
+				458D23392CCCB5D10088AA02 /* APIError.swift */,
+				458D233A2CCCB5D10088AA02 /* APIRoute.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		8F5A8E042CCC0A9E00E98CB7 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +229,7 @@
 		8F5A8E0F2CCC0A9E00E98CB7 /* NewsToday */ = {
 			isa = PBXGroup;
 			children = (
+				458D233E2CCCB5D90088AA02 /* API */,
 				458D23252CCC95530088AA02 /* App */,
 				458D23372CCC9E990088AA02 /* Models */,
 				458D23022CCC8B050088AA02 /* Extensions */,
@@ -312,6 +329,9 @@
 				458D232A2CCC96D20088AA02 /* AuthViewController.swift in Sources */,
 				458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */,
 				458D23142CCC8C210088AA02 /* LanguageViewController.swift in Sources */,
+				458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */,
+				458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */,
+				458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */,
 				458D23152CCC8C210088AA02 /* ProfileViewController.swift in Sources */,
 				458D23162CCC8C210088AA02 /* TermsViewController.swift in Sources */,
 				458D231A2CCC8C400088AA02 /* Store.swift in Sources */,
