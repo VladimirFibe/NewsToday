@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start() {
-        setRootViewController(makeAuth())
+        setRootViewController(makeTabbar())
     }
     
     private func runOnboarding() {
