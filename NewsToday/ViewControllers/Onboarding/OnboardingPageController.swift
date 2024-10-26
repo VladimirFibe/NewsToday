@@ -203,7 +203,4 @@ extension UIPageViewController {
         setViewControllers([pages[index]], direction: .forward, animated: true, completion: nil)
     }
 }
-@available(iOS 17.0, *)
-#Preview {
-    OnboardingPageController()
-}
+

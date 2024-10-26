@@ -34,60 +34,101 @@ class LanguageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
-    let button = {
+    private lazy var englishButton: UIButton = {
+
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "line.3.horizontal.decrease.circle")!
-            .applyingSymbolConfiguration(.init(pointSize: 100))
-        configuration.cornerStyle = .medium
-        configuration.baseBackgroundColor = .darkGray
-        configuration.contentInsets = .zero
-        let button = UIButton(configuration: configuration)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private lazy var titleLabel: UILabel = {
-        let element = UILabel()
-        element.text = "Language"
-        element.tintColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
-        element.textAlignment = .center
-        element.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        configuration.title = "English"
+        configuration.attributedTitle?.font = UIFont(name: "Inter-SemiBold", size: 16)
+        configuration.titleAlignment = .leading
+        configuration.baseForegroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+
+        configuration.image = UIImage(named: "check")
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 215
+        configuration.background.cornerRadius = 12
+        configuration.baseBackgroundColor = UIColor(red: 71/255, green: 90/255, blue: 215/255, alpha: 1)
+
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
+
+        let element = UIButton(configuration: configuration)
+        element.addTarget(self, action: #selector(englishButtonTapped), for: .touchUpInside)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
+    @objc func englishButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private lazy var russianButton: UIButton = {
+
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "Russian"
+        configuration.attributedTitle?.font = UIFont(name: "Inter-SemiBold", size: 16)
+        configuration.titleAlignment = .leading
+        configuration.baseForegroundColor = UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1)
+        configuration.image = UIImage(named: "check")
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 211
+        configuration.background.cornerRadius = 12
+        configuration.baseBackgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
+
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
+
+        let element = UIButton(configuration: configuration)
+        element.addTarget(self, action: #selector(russianButtonTapped), for: .touchUpInside)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    @objc func russianButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        setupViewsConstraints()
         
-        setupViews()
-        setConstraints()
+//        navigationItem.titleView = UILa
     }
     
-    private func setupViews() {
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         navigationController?.navigationBar.isHidden = false
+         navigationItem.title = "Language"
+        navigationController!.navigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 28)
+        
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1), NSAttributedString.Key.font: UIFont.init(name: "Inter-SemiBold", size: 24)]
+        
+     }
+    
+    
+    private func setupViewsConstraints() {
+        view.addSubview(backgroundViewColor)
         view.addSubview(backButton)
-        view.addSubview(titleLabel)
-        view.addSubview(button)
+        view.addSubview(englishButton)
+        view.addSubview(russianButton)
         
-    }
-    
-    private func setConstraints() {
-//        let scrollContentGuide = scrollView.contentLayoutGuide
-//        let scrollFrameGuide = scrollView.frameLayoutGuide
         NSLayoutConstraint.activate([
+            backgroundViewColor.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundViewColor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundViewColor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundViewColor.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
             backButton.widthAnchor.constraint(equalToConstant: 24),
             backButton.heightAnchor.constraint(equalToConstant: 24),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
+        
+            englishButton.widthAnchor.constraint(equalToConstant: 336),
+            englishButton.heightAnchor.constraint(equalToConstant: 56),
+            englishButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 1),
+            englishButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            
-            
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            russianButton.widthAnchor.constraint(equalToConstant: 336),
+            russianButton.heightAnchor.constraint(equalToConstant: 56),
+            russianButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 1),
+            russianButton.topAnchor.constraint(equalTo: englishButton.bottomAnchor, constant: 16),
             
         ])
     }
