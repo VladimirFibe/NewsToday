@@ -22,7 +22,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start() {
+        setRootViewController(makeAuth())
+    }
+    
+    private func runOnboarding() {
+        setRootViewController(makeOnboarding())
+    }
+    
+    private func runTabbar() {
         setRootViewController(makeTabbar())
+    }
+    
+    private func makeAuth() -> UIViewController {
+        let controller = AuthViewController()
+        controller.action = { [weak self] in self?.runOnboarding() }
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func makeOnboarding() -> UIViewController {
+        let controller = OnboardingPageController()
+        controller.action = { [weak self] in self?.runTabbar()}
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func makeTabbar() -> UIViewController {
+        let controller = CustomTabBarController()
+        return controller
     }
     
     func setRootViewController(_ controller: UIViewController, animated: Bool = true) {
@@ -40,23 +65,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                           animations: nil,
                           completion: nil)
     }
-    
-    private func makeAuth() -> UIViewController {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .green
-        return UINavigationController(rootViewController: controller)
-    }
-    
-    private func makeOnboarding() -> UIViewController {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .red
-        return UINavigationController(rootViewController: controller)
-    }
-    
-    private func makeTabbar() -> UIViewController {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .blue
-        return controller
-    }
+
 }
 
