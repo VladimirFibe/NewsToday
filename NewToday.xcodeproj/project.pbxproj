@@ -11,6 +11,7 @@
 		044B40EA2CCBBB5700E13355 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B40E92CCBBB5700E13355 /* CustomTabBarController.swift */; };
 		044B40EC2CCBBBB800E13355 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B40EB2CCBBBB800E13355 /* BrowseViewController.swift */; };
 		044B410B2CCBD9E400E13355 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B410A2CCBD9E400E13355 /* Header.swift */; };
+		044B410D2CCBEFF300E13355 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B410C2CCBEFF300E13355 /* NewsCell.swift */; };
 		4562BF682CCB3F7300D033DA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562BF652CCB3F7300D033DA /* APIClient.swift */; };
 		4562BF692CCB3F7300D033DA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562BF662CCB3F7300D033DA /* APIError.swift */; };
 		4562BF6A2CCB3F7300D033DA /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562BF672CCB3F7300D033DA /* APIRoute.swift */; };
@@ -40,6 +41,7 @@
 		044B40E92CCBBB5700E13355 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		044B40EB2CCBBBB800E13355 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		044B410A2CCBD9E400E13355 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		044B410C2CCBEFF300E13355 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		4562BF652CCB3F7300D033DA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4562BF662CCB3F7300D033DA /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		4562BF672CCB3F7300D033DA /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				044B40EB2CCBBBB800E13355 /* BrowseViewController.swift */,
+				044B410C2CCBEFF300E13355 /* NewsCell.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				4562BF6E2CCB3FA900D033DA /* BookMarksViewController.swift in Sources */,
 				4562BF6F2CCB3FA900D033DA /* BookMarksCell.swift in Sources */,
 				4562BF7E2CCB3FFE00D033DA /* Store.swift in Sources */,
+				044B410D2CCBEFF300E13355 /* NewsCell.swift in Sources */,
 				8F6634812CC9D6BC00EE36E2 /* AppDelegate.swift in Sources */,
 				8F3CFA0D2CC9F49300F237BE /* LanguageViewController.swift in Sources */,
 				8F3CFA092CC9F46F00F237BE /* ProfileViewController.swift in Sources */,
