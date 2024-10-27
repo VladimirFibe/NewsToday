@@ -1,103 +1,58 @@
 import UIKit
 
-class OnboardingPageController: UIPageViewController {
+final class OnboardingPageController: UIPageViewController {
     var action: Callback?
-
     var pages = [UIViewController]()
+    private let pageControl = UIPageControl()
 
-    // external controls
-    let skipButton = UIButton()
-    let nextButton = UIButton()
-    let pageControl = UIPageControl()
-    let initialPage = 0
-
-    // animations
-    var skipButtonTopAnchor: NSLayoutConstraint?
-    var nextButtonTopAnchor: NSLayoutConstraint?
-    var pageControlBottomAnchor: NSLayoutConstraint?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setup()
-        style()
-        layout()
-    }
-}
-
-extension OnboardingPageController {
-    
-    func setup() {
         dataSource = self
         delegate = self
-        pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
-
-        let page1 = OnboardingViewController(imageName: "photo0",
-                                             titleText: "Welcome",
-                                             subtitleText: "To the Swift Arcade. Your place for learning Swift.")
-        let page2 = OnboardingViewController(imageName: "photo1",
-                                             titleText: "Learn",
-                                             subtitleText: "Start your career in iOS development.")
-        let page3 = OnboardingViewController(imageName: "photo2",
-                                             titleText: "Have fun",
-                                             subtitleText: "Level Up and have fun building mobile apps.")
         
-        pages.append(page1)
-        pages.append(page2)
-        pages.append(page3)
-        
-        setViewControllers([pages[initialPage]], direction: .forward, animated: true, completion: nil)
-    }
-    
-    func style() {
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.currentPageIndicatorTintColor = .black
-        pageControl.pageIndicatorTintColor = .systemGray2
-        pageControl.numberOfPages = pages.count
-        pageControl.currentPage = initialPage
-
-        skipButton.translatesAutoresizingMaskIntoConstraints = false
-        skipButton.setTitleColor(.systemBlue, for: .normal)
-        skipButton.setTitle("Skip", for: .normal)
-        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
-
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.setTitleColor(.systemBlue, for: .normal)
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
-    }
-    
-    func layout() {
-        view.addSubview(pageControl)
-        view.addSubview(nextButton)
-        view.addSubview(skipButton)
-        
-        NSLayoutConstraint.activate([
-            pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            skipButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
-        ])
-        
-        // for animations
-        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
-        nextButtonTopAnchor = nextButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
-        pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
-
-        skipButtonTopAnchor?.isActive = true
-        nextButtonTopAnchor?.isActive = true
-        pageControlBottomAnchor?.isActive = true
+        pages.append(OnboardingViewController(imageName: "photo0",
+                                              titleText: "Welcome",
+                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+        pages.append(OnboardingViewController(imageName: "photo1",
+                                              titleText: "Welcome",
+                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+        pages.append(OnboardingViewController(imageName: "photo2",
+                                              titleText: "Welcome",
+                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+        guard let page = pages.first else { return }
+        setViewControllers([page], direction: .forward, animated: false)
+        setupPageControl()
     }
 }
 
-// MARK: - DataSource
+private extension OnboardingPageController {
+    @objc func pageControlTapped(_ sender: UIPageControl) {
+        print(sender.currentPage)
+    }
+}
+
+private extension OnboardingPageController {
+    func setupPageControl() {
+        view.addSubview(pageControl)
+        pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.numberOfPages = pages.count
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50)
+        ])
+    }
+}
 
 extension OnboardingPageController: UIPageViewControllerDataSource {
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
 
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         
@@ -108,7 +63,10 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
         }
     }
         
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController
+    ) -> UIViewController? {
         
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
 
@@ -120,8 +78,6 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
     }
 }
 
-// MARK: - Delegates
-
 extension OnboardingPageController: UIPageViewControllerDelegate {
     
     // How we keep our pageControl in sync with viewControllers
@@ -131,76 +87,10 @@ extension OnboardingPageController: UIPageViewControllerDelegate {
         guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
         
         pageControl.currentPage = currentIndex
-        animateControlsIfNeeded()
-    }
-    
-    private func animateControlsIfNeeded() {
-        let lastPage = pageControl.currentPage == pages.count - 1
-        
-        if lastPage {
-            hideControls()
-        } else {
-            showControls()
-        }
-
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-    private func hideControls() {
-        pageControlBottomAnchor?.constant = -80
-        skipButtonTopAnchor?.constant = -80
-        nextButtonTopAnchor?.constant = -80
-    }
-
-    private func showControls() {
-        pageControlBottomAnchor?.constant = 16
-        skipButtonTopAnchor?.constant = 16
-        nextButtonTopAnchor?.constant = 16
     }
 }
 
-// MARK: - Actions
-
-extension OnboardingPageController {
-
-    @objc func pageControlTapped(_ sender: UIPageControl) {
-        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
-        animateControlsIfNeeded()
-    }
-
-    @objc func skipTapped(_ sender: UIButton) {
-        action?()
-    }
-    
-    @objc func nextTapped(_ sender: UIButton) {
-        pageControl.currentPage += 1
-        goToNextPage()
-        animateControlsIfNeeded()
-    }
+@available(iOS 17.0, *)
+#Preview {
+    OnboardingPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
 }
-
-// MARK: - Extensions
-
-extension UIPageViewController {
-
-    func goToNextPage(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        guard let currentPage = viewControllers?[0] else { return }
-        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }
-        
-        setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
-    }
-    
-    func goToPreviousPage(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        guard let currentPage = viewControllers?[0] else { return }
-        guard let prevPage = dataSource?.pageViewController(self, viewControllerBefore: currentPage) else { return }
-        
-        setViewControllers([prevPage], direction: .forward, animated: animated, completion: completion)
-    }
-    
-    func goToSpecificPage(index: Int, ofViewControllers pages: [UIViewController]) {
-        setViewControllers([pages[index]], direction: .forward, animated: true, completion: nil)
-    }
-}
-
