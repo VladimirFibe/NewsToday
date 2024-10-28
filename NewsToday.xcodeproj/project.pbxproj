@@ -36,6 +36,8 @@
 		8F5A8E132CCC0A9E00E98CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A8E122CCC0A9E00E98CB7 /* SceneDelegate.swift */; };
 		8F5A8E1A2CCC0AA200E98CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A8E192CCC0AA200E98CB7 /* Assets.xcassets */; };
 		8F5A8E1D2CCC0AA200E98CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A8E1B2CCC0AA200E98CB7 /* LaunchScreen.storyboard */; };
+		DE904C322CCD209400B79B11 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C312CCD208000B79B11 /* ArticleViewController.swift */; };
+		DE904C622CCEA58300B79B11 /* UILabel + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		8F5A8E192CCC0AA200E98CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F5A8E1C2CCC0AA200E98CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F5A8E1E2CCC0AA200E98CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE904C312CCD208000B79B11 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		458D23022CCC8B050088AA02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */,
 				458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */,
 				458D23302CCC99AE0088AA02 /* Bundle+Extension.swift */,
 				458D23032CCC8B290088AA02 /* UIView+Extensions.swift */,
@@ -116,6 +121,7 @@
 		458D23272CCC967B0088AA02 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DE904C302CCD1FAB00B79B11 /* ArticlePage */,
 				458D23332CCC9E420088AA02 /* Profile */,
 				458D23342CCC9E4E0088AA02 /* BookMarks */,
 				458D23322CCC9A4E0088AA02 /* Onboarding */,
@@ -240,6 +246,14 @@
 			path = NewsToday;
 			sourceTree = "<group>";
 		};
+		DE904C302CCD1FAB00B79B11 /* ArticlePage */ = {
+			isa = PBXGroup;
+			children = (
+				DE904C312CCD208000B79B11 /* ArticleViewController.swift */,
+			);
+			path = ArticlePage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,8 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE904C322CCD209400B79B11 /* ArticleViewController.swift in Sources */,
 				458D230F2CCC8C180088AA02 /* BookMarksCell.swift in Sources */,
 				458D232E2CCC99910088AA02 /* OnboardingPageController.swift in Sources */,
+				DE904C622CCEA58300B79B11 /* UILabel + Extention.swift in Sources */,
 				458D232F2CCC99910088AA02 /* OnboardingViewController.swift in Sources */,
 				458D23102CCC8C180088AA02 /* BookMarksViewController.swift in Sources */,
 				458D23082CCC8BF50088AA02 /* CustomTabBarController.swift in Sources */,
