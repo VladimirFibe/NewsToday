@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044B41112CCE7EFA00E13355 /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41102CCE7EFA00E13355 /* CustomSearchView.swift */; };
+		044B41132CCFF7ED00E13355 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41122CCFF7EA00E13355 /* TabsView.swift */; };
 		458D22FD2CCC8A950088AA02 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */; };
 		458D23042CCC8B290088AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23032CCC8B290088AA02 /* UIView+Extensions.swift */; };
 		458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		044B41102CCE7EFA00E13355 /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
+		044B41122CCFF7EA00E13355 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		458D23032CCC8B290088AA02 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				458D23092CCC8C0C0088AA02 /* BrowseViewController.swift */,
 				458D230A2CCC8C0C0088AA02 /* NewsCell.swift */,
 				044B41102CCE7EFA00E13355 /* CustomSearchView.swift */,
+				044B41122CCFF7EA00E13355 /* TabsView.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */,
 				8F43D8D12CCD3D710093E8DB /* TermsViewController.swift in Sources */,
 				458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */,
+				044B41132CCFF7ED00E13355 /* TabsView.swift in Sources */,
 				458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */,
 				458D231A2CCC8C400088AA02 /* Store.swift in Sources */,
 				8F43D8D22CCD3D710093E8DB /* ProfileViewController.swift in Sources */,

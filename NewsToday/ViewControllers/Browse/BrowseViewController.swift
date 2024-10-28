@@ -11,6 +11,12 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     
     private let searchBar = CustomSearchView()
     
+    private lazy var tabsView: TabsView = {
+        let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming", "Politics", "Art", "Health", "Breaking News"])
+        tabsView.delegate = self
+        return tabsView
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -33,6 +39,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         
         setupHeaderView()
         setupSearchView()
+        setupTabsView()
         setupCollectionView()
     }
     
@@ -51,19 +58,31 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         
         view.addSubview(searchBar)
         
-        let offset: CGFloat = 10
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -offset),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchBar.heightAnchor.constraint(equalToConstant: 56)
+        ])
+    }
+    
+    private func setupTabsView() {
+        tabsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tabsView)
+        
+        NSLayoutConstraint.activate([
+            tabsView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
+            tabsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14.5),
+            tabsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tabsView.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
     
     private func setupCollectionView() {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
+            collectionView.topAnchor.constraint(equalTo: tabsView.bottomAnchor, constant: 24),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 256)
@@ -91,5 +110,13 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.configure(with: "An updated daily front page", image: UIImage(named: "sampleArt"), tag: "ART")
         }
         return cell
+    }
+}
+
+// MARK: - TabsViewDelegate (обработка смены таба)
+
+extension BrowseViewController: TabsViewDelegate {
+    func tabsView(_ tabBarView: TabsView, didSelectTabAt index: Int) {
+        print("Selected tab index: \(index)")
     }
 }
