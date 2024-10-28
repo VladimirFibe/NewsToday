@@ -19,22 +19,6 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
 
-
-
-
-
-
-
-
-
-
-+++++
-ghdjhjgkh
-hvjhkh
-jbjkhklj
-
-
-hjvjjkj
 """
     private lazy var backgroundViewColor: UIView = {
         let element = UIView()

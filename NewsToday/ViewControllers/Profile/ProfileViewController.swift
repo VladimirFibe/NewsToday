@@ -177,22 +177,23 @@ class ProfileViewController: UIViewController {
             pictureUser.topAnchor.constraint(equalTo: infoStackView.topAnchor),
             pictureUser.leadingAnchor.constraint(equalTo: infoStackView.leadingAnchor),
             
-            
-            
-            signOutButton.widthAnchor.constraint(equalToConstant: 336),
             signOutButton.heightAnchor.constraint(equalToConstant: 56),
-            signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 1),
+            signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             signOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -90),
             
-            termsConditionsButton.widthAnchor.constraint(equalToConstant: 336),
             termsConditionsButton.heightAnchor.constraint(equalToConstant: 56),
-            termsConditionsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 1),
+            termsConditionsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            termsConditionsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            termsConditionsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             termsConditionsButton.bottomAnchor.constraint(equalTo: signOutButton.topAnchor, constant: -28),
             
-            languageButton.widthAnchor.constraint(equalToConstant: 336),
             languageButton.heightAnchor.constraint(equalToConstant: 56),
-            languageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 1),
-            languageButton.bottomAnchor.constraint(equalTo: signOutButton.topAnchor, constant: -240),
+            languageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            languageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            languageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            languageButton.topAnchor.constraint(equalTo: pictureUser.bottomAnchor, constant: 44),
 
         ])
     }
