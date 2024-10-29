@@ -16,6 +16,7 @@ extension UIView {
             label.font = UIFont(name: "Inter-SemiBold", size: 24) ?? .boldSystemFont(ofSize: 24)
             label.textAlignment = .left
             label.textColor = UIColor(named: "black Primary")
+            label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -26,6 +27,7 @@ extension UIView {
             label.font = UIFont(name: "Inter-Regular", size: 16) ?? .systemFont(ofSize: 16)
             label.textColor = UIColor(named: "GreyPrimary")
             label.textAlignment = .left
+            label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
