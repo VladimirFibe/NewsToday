@@ -40,6 +40,7 @@
 		DE904C622CCEA58300B79B11 /* UILabel + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */; };
 		DE904C662CD165FF00B79B11 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C652CD165EE00B79B11 /* RegViewController.swift */; };
 		DE904C692CD168E500B79B11 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C682CD168D100B79B11 /* SignUpView.swift */; };
+		DE904C6B2CD1738B00B79B11 /* UITextField + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C6A2CD1737600B79B11 /* UITextField + Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extention.swift"; sourceTree = "<group>"; };
 		DE904C652CD165EE00B79B11 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		DE904C682CD168D100B79B11 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DE904C6A2CD1737600B79B11 /* UITextField + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		458D23022CCC8B050088AA02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DE904C6A2CD1737600B79B11 /* UITextField + Extention.swift */,
 				DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */,
 				458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */,
 				458D23302CCC99AE0088AA02 /* Bundle+Extension.swift */,
@@ -371,6 +374,7 @@
 				458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */,
 				8F43D8D12CCD3D710093E8DB /* TermsViewController.swift in Sources */,
 				458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */,
+				DE904C6B2CD1738B00B79B11 /* UITextField + Extention.swift in Sources */,
 				458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */,
 				458D231A2CCC8C400088AA02 /* Store.swift in Sources */,
 				8F43D8D22CCD3D710093E8DB /* ProfileViewController.swift in Sources */,
