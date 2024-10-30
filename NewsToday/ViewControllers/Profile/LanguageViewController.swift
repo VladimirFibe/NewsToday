@@ -14,8 +14,9 @@ class LanguageViewController: UIViewController {
     let imageButton = "check"
     let tittleEng = "English"
     let tittleRus = "Russian"
-
-
+    var selectedButton: UIButton?
+    var tagButton = UserDefaults.standard.integer(forKey: "Language")
+   
     private lazy var backButton: UIButton = {
         let element = UIButton()
         element.setImage(UIImage(named: "left-icon"), for: .normal)
@@ -33,41 +34,32 @@ class LanguageViewController: UIViewController {
     private lazy var engButton = UIButton(title: tittleEng, image: imageButton)
     private lazy var rusButton = UIButton(title: tittleRus, image: imageButton)
     
-    
-//    func changeButton(_ button: UIButton) {
-//        if button.isSelected {
-//            button.configuration?.titleAlignment = .leading
-//            button.configuration?.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//            button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
-//            button.configuration?.image = imageButton
-//            button.configuration?.imagePlacement = .trailing
-//            button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
-//            if button.currentTitle == "Russian" {
-//                button.configuration?.imagePadding = 211
-//            } else {
-//                button.configuration?.imagePadding = 215
-//            }
-//        } else {
-//            button.configuration?.titleAlignment = .leading
-//            button.configuration?.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
-//            button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
-//            if button.currentTitle == "Russian" {
-//                button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 251)
-//            } else {
-//                button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 274)
-//            }
-//        }
-//    }
-
-    @objc func buttonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        UserDefaults.standard.set(sender.isSelected, forKey: "selectedLanguage")
+    func chooseTagButton(_ tag: Int) {
+        if tag == 0 {
+            selectedButton = engButton
+        } else {
+            selectedButton = rusButton
+        }
     }
-
+    
+    @objc private func buttonTapped(_ sender: UIButton) {
+        
+        if let currentButton = selectedButton {
+            currentButton.configuration?.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
+            currentButton.configuration?.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
+        }
+        
+        sender.configuration?.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        sender.configuration?.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
+        selectedButton = sender
+        UserDefaults.standard.set(sender.tag, forKey: "Language")
+        
+        print(tagButton)
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        chooseTagButton(tagButton)
         setupViewsConstraints()
         
     }

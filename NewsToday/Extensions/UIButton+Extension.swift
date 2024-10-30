@@ -48,6 +48,9 @@ extension UIButton {
         configuration.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
         configuration.image = UIImage(named: image)
         configuration.imagePlacement = .trailing
+        configuration.background.cornerRadius = 12
+        configuration.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
         switch title {
         case "Sign Out" :
             configuration.imagePadding = 205
@@ -55,15 +58,25 @@ extension UIButton {
             configuration.imagePadding = 121
         case "Language" :
             configuration.imagePadding = 195
-        case "English", "Russian"  :
+        case "English":
             configuration.imagePadding = 215
+            configuration.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            configuration.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
+        case "Russian":
+            configuration.imagePadding = 215
+            configuration.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
+            configuration.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
         default: print("error")
         }
-        configuration.background.cornerRadius = 12
-        configuration.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
+        
 
         self.init(configuration: configuration)
+        if title == "English" {
+            self.tag = 0
+        }
+        if title == "Russian" {
+            self.tag = 1
+        }
         self.translatesAutoresizingMaskIntoConstraints = false
 
     }
