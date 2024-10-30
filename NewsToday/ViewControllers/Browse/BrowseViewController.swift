@@ -12,7 +12,8 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     private let searchBar = CustomSearchView()
     
     private lazy var tabsView: TabsView = {
-        let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming", "Politics", "Art", "Health", "Breaking News"])
+        let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming",
+                                               "Politics", "Art", "Health"])
         tabsView.delegate = self
         return tabsView
     }()
@@ -59,7 +60,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         view.addSubview(searchBar)
         
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 105),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchBar.heightAnchor.constraint(equalToConstant: 56)
@@ -73,7 +74,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         
         NSLayoutConstraint.activate([
             tabsView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
-            tabsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14.5),
+            tabsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tabsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tabsView.heightAnchor.constraint(equalToConstant: 32)
         ])
@@ -83,7 +84,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: tabsView.bottomAnchor, constant: 24),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 256)
         ])
@@ -105,9 +106,11 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // Мок-данные в карточках новостей
         if indexPath.row % 2 == 0 {
-            cell.configure(with: "The latest situation in the presidential election", image: UIImage(named: "samplePolitics"), tag: "POLITICS")
+            cell.configure(with: "The latest situation in the presidential election",
+                           image: UIImage(named: "samplePolitics"), tag: "POLITICS")
         } else {
-            cell.configure(with: "An updated daily front page", image: UIImage(named: "sampleArt"), tag: "ART")
+            cell.configure(with: "An updated daily front page",
+                           image: UIImage(named: "sampleArt"), tag: "ART")
         }
         return cell
     }

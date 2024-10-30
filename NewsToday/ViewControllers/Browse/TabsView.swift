@@ -25,7 +25,6 @@ class TabsView: UIView {
         return scrollView
     }()
     
-    //
     init(buttonTitles: [String]) {
         self.buttonTitles = buttonTitles
         super.init(frame: .zero)
@@ -75,7 +74,8 @@ class TabsView: UIView {
             button.setTitleColor(UIColor(named: "GreyPrimary"), for: .normal)
             button.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 12)
             button.layer.cornerRadius = 16
-            button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+//            button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
             button.tag = index
             button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             stackView.addArrangedSubview(button)
@@ -89,12 +89,10 @@ class TabsView: UIView {
     }
     
     @objc private func buttonTapped(_ sender: UIButton) {
-        // Убираем выделение с предыдущей кнопки
         if let currentSelectedButton = selectedButton {
             deselectButton(currentSelectedButton)
         }
         
-        // Выделяем выбранную кнопку
         selectButton(sender)
         delegate?.tabsView(self, didSelectTabAt: sender.tag)
     }
