@@ -7,7 +7,9 @@
 
 import UIKit
 
-class BrowseViewController: UIViewController {
+class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
+    
+    private let searchBar = CustomSearchView()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,6 +32,7 @@ class BrowseViewController: UIViewController {
         view.backgroundColor = .white
         
         setupHeaderView()
+        setupSearchView()
         setupCollectionView()
     }
     
@@ -40,12 +43,29 @@ class BrowseViewController: UIViewController {
         )
     }
     
+    private func setupSearchView() {
+        searchBar.delegate = self
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.layer.borderWidth = 0
+        searchBar.layer.cornerRadius = 12
+        
+        view.addSubview(searchBar)
+        
+        let offset: CGFloat = 10
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -offset),
+            searchBar.heightAnchor.constraint(equalToConstant: 56)
+        ])
+    }
+    
     private func setupCollectionView() {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 256)
         ])
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
@@ -56,20 +76,20 @@ class BrowseViewController: UIViewController {
 
 extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // количество карточек
+        return 10 // количество карточек в коллекции
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else {
             return UICollectionViewCell()
         }
-
-        // Configure cell with different data
-         if indexPath.row % 2 == 0 {
-             cell.configure(with: "The latest situation in the presidential election", image: UIImage(named: "samplePolitics"), tag: "POLITICS")
-         } else {
-             cell.configure(with: "An updated daily front page", image: UIImage(named: "sampleArt"), tag: "ART")
-         }
+        
+        // Мок-данные в карточках новостей
+        if indexPath.row % 2 == 0 {
+            cell.configure(with: "The latest situation in the presidential election", image: UIImage(named: "samplePolitics"), tag: "POLITICS")
+        } else {
+            cell.configure(with: "An updated daily front page", image: UIImage(named: "sampleArt"), tag: "ART")
+        }
         return cell
     }
 }
