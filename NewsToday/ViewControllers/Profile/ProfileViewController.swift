@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController {
 
     private lazy var mainLabel: UILabel = {
         let element = UILabel()
-        element.text = "Profile"
+        element.text = Texts.ProfileViewController.title
         element.textColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
         element.font = UIFont(name: "Inter-SemiBold", size: 24)
         element.textAlignment = .left
