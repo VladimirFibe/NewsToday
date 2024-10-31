@@ -70,7 +70,7 @@ class TabsView: UIView {
         for (index, title) in buttonTitles.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(title, for: .normal)
-            button.backgroundColor = UIColor(named: "LightGray")
+            button.backgroundColor = UIColor(named: "GrayLight")
             button.setTitleColor(UIColor(named: "GreyPrimary"), for: .normal)
             button.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 12)
             button.layer.cornerRadius = 16
@@ -104,7 +104,7 @@ class TabsView: UIView {
     }
     
     private func deselectButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(named: "LightGray")
+        button.backgroundColor = UIColor(named: "GrayLight")
         button.setTitleColor(UIColor(named: "GreyPrimary"), for: .normal)
     }
 }

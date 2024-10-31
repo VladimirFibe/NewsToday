@@ -41,7 +41,7 @@ class CustomSearchView: UIView {
     }
     
     private func configureView() {
-        backgroundColor = UIColor(named: "LightGray")
+        backgroundColor = UIColor(named: "GrayLight")
         layer.cornerRadius = 12
         clipsToBounds = true
     }

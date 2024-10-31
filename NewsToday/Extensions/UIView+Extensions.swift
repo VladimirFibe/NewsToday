@@ -25,6 +25,8 @@ extension UIView {
             label.text = subTitle
             label.font = UIFont(name: "Inter-Regular", size: 16) ?? .systemFont(ofSize: 16)
             label.textColor = UIColor(named: "GreyPrimary")
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
             label.textAlignment = .left
             label.translatesAutoresizingMaskIntoConstraints = false
             return label

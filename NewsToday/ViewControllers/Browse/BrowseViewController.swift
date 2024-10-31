@@ -37,6 +37,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.hidesBackButton = true
         
         setupHeaderView()
         setupSearchView()
