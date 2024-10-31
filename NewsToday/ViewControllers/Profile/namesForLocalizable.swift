@@ -31,7 +31,7 @@ enum Texts {
         static var title: String { NSLocalizedString("languageViewController title", comment: "") }
 //        static var subtitle: String { NSLocalizedString("second controller subtitle", comment: "") }
         static var engButton: String { NSLocalizedString("languageViewController english button", comment: "") }
-        static var cancel_button: String { NSLocalizedString("languageViewController russian button", comment: "") }
+        static var rusButton: String { NSLocalizedString("languageViewController russian button", comment: "") }
     }
     
     static func fruitName(name: String) -> String {

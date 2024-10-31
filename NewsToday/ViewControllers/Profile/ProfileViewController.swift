@@ -79,9 +79,9 @@ class ProfileViewController: UIViewController {
         return element
     }()
     
-    private lazy var signOutButton = UIButton(title: titleButton1, image: imageButton1)
-    private lazy var termsConditionsButton = UIButton(title: titleButton2, image: imageButton2)
-    private lazy var languageButton = UIButton(title: titleButton3, image: imageButton3)
+    private lazy var signOutButton = UIButton(title: Texts.ProfileViewController.signOutButton, image: imageButton1)
+    private lazy var termsConditionsButton = UIButton(title: Texts.ProfileViewController.termsConditionsButton, image: imageButton2)
+    private lazy var languageButton = UIButton(title: Texts.ProfileViewController.languageButton, image: imageButton3)
     
 //    private lazy var signOutButton: UIButton = {
 //

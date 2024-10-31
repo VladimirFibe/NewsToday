@@ -12,8 +12,8 @@ class LanguageViewController: UIViewController {
     //    MARK: - UI Elements
 
     let imageButton = "check"
-    let tittleEng = "English"
-    let tittleRus = "Russian"
+    let tittleEng = Texts.LanguageViewController.engButton
+    let tittleRus = Texts.LanguageViewController.rusButton
     var selectedButton: UIButton?
     var isSelected = true
    
@@ -60,7 +60,7 @@ class LanguageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
-        navigationItem.title = "Language"
+        navigationItem.title = Texts.LanguageViewController.title
         navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1), NSAttributedString.Key.font: UIFont.init(name: "Inter-SemiBold", size: 24)]
      }
     

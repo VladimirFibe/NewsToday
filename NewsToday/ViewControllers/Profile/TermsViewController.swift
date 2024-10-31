@@ -43,7 +43,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.text = "Terms & Conditions"
+        element.text = Texts.TermsViewController.title
         element.tintColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
         element.textAlignment = .center
         element.font = UIFont(name: "Inter-SemiBold", size: 24)
@@ -85,7 +85,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          navigationController?.navigationBar.isHidden = false
-         navigationItem.title = "Terms & Conditions"
+         navigationItem.title = Texts.TermsViewController.title
         
         navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1), NSAttributedString.Key.font: UIFont.init(name: "Inter-SemiBold", size: 24)]
         
