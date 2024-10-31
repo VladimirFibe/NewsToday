@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        window.rootViewController = RegViewController()
+        window.rootViewController = SignUpViewController()
         window.makeKeyAndVisible()
         UIView.transition(with: window,
                           duration: 0.3,

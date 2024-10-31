@@ -38,9 +38,9 @@
 		8F5A8E1D2CCC0AA200E98CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A8E1B2CCC0AA200E98CB7 /* LaunchScreen.storyboard */; };
 		DE904C322CCD209400B79B11 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C312CCD208000B79B11 /* ArticleViewController.swift */; };
 		DE904C622CCEA58300B79B11 /* UILabel + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */; };
-		DE904C662CD165FF00B79B11 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C652CD165EE00B79B11 /* RegViewController.swift */; };
-		DE904C692CD168E500B79B11 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C682CD168D100B79B11 /* SignUpView.swift */; };
+		DE904C662CD165FF00B79B11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C652CD165EE00B79B11 /* SignInViewController.swift */; };
 		DE904C6B2CD1738B00B79B11 /* UITextField + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C6A2CD1737600B79B11 /* UITextField + Extention.swift */; };
+		DE904C6D2CD3F6FF00B79B11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE904C6C2CD3F6ED00B79B11 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,9 +77,9 @@
 		8F5A8E1E2CCC0AA200E98CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE904C312CCD208000B79B11 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extention.swift"; sourceTree = "<group>"; };
-		DE904C652CD165EE00B79B11 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
-		DE904C682CD168D100B79B11 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DE904C652CD165EE00B79B11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DE904C6A2CD1737600B79B11 /* UITextField + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extention.swift"; sourceTree = "<group>"; };
+		DE904C6C2CD3F6ED00B79B11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,18 +265,10 @@
 		DE904C642CD165D500B79B11 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				DE904C672CD168C700B79B11 /* View */,
-				DE904C652CD165EE00B79B11 /* RegViewController.swift */,
+				DE904C6C2CD3F6ED00B79B11 /* SignUpViewController.swift */,
+				DE904C652CD165EE00B79B11 /* SignInViewController.swift */,
 			);
 			path = Registration;
-			sourceTree = "<group>";
-		};
-		DE904C672CD168C700B79B11 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DE904C682CD168D100B79B11 /* SignUpView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,7 +357,6 @@
 				458D23042CCC8B290088AA02 /* UIView+Extensions.swift in Sources */,
 				458D230B2CCC8C0C0088AA02 /* BrowseViewController.swift in Sources */,
 				8F43D8D32CCD3D710093E8DB /* LanguageViewController.swift in Sources */,
-				DE904C692CD168E500B79B11 /* SignUpView.swift in Sources */,
 				458D230C2CCC8C0C0088AA02 /* NewsCell.swift in Sources */,
 				8F5A8E112CCC0A9E00E98CB7 /* AppDelegate.swift in Sources */,
 				458D23312CCC99AE0088AA02 /* Bundle+Extension.swift in Sources */,
@@ -376,9 +367,10 @@
 				458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */,
 				DE904C6B2CD1738B00B79B11 /* UITextField + Extention.swift in Sources */,
 				458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */,
+				DE904C6D2CD3F6FF00B79B11 /* SignUpViewController.swift in Sources */,
 				458D231A2CCC8C400088AA02 /* Store.swift in Sources */,
 				8F43D8D22CCD3D710093E8DB /* ProfileViewController.swift in Sources */,
-				DE904C662CD165FF00B79B11 /* RegViewController.swift in Sources */,
+				DE904C662CD165FF00B79B11 /* SignInViewController.swift in Sources */,
 				458D231B2CCC8C400088AA02 /* News.swift in Sources */,
 				8F5A8E132CCC0A9E00E98CB7 /* SceneDelegate.swift in Sources */,
 			);

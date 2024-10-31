@@ -1,4 +1,11 @@
 //
+//  SignUpViewController.swift
+//  NewsToday
+//
+//  Created by Надежда Капацина on 31.10.2024.
+//
+
+//
 //  SignUp.swift
 //  NewsToday
 //
@@ -7,7 +14,7 @@
 
 import UIKit
 
-class SignUpView: UIView {
+class SignUpViewController: UIViewController {
     
     private let stackView: UIStackView = {
         let element = UIStackView()
@@ -28,10 +35,10 @@ class SignUpView: UIView {
         
     let sighnUpButton = UIButton.createButton(title: "Sign Up")
 
-    private let haveAccountTextView: UITextView = {
+    private var haveAccountTextView: UITextView {
         let attributedString = NSMutableAttributedString(string: "Already have an account? Sign In")
         attributedString.addAttribute(.link, value: "https://www.example.com", range: (attributedString.string as NSString).range(of: "Sign In"))
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: attributedString.length + 7))
         
         let textView = UITextView()
         textView.linkTextAttributes = [.font: UIFont(name: "Inter-Medium", size: 16)!]
@@ -43,36 +50,34 @@ class SignUpView: UIView {
         textView.isScrollEnabled = false
         textView.delaysContentTouches = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-
-
+        
+        
         return textView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            
+            setupView()
+
+        }
     
     func setupView() {
-        self.addHeader(title: "Welcome to NewsToDay", subTitle: "Hello, guess you are new around here. You can start using the application after sign up ")
-        
+        view.addHeader(title: "Welcome to NewsToDay", subTitle: "Hello, guess you are new around here. You can start using the application after sign up ")
         
         setupStackView()
-        self.addSubview(haveAccountTextView)
+        view.addSubview(haveAccountTextView)
         
         NSLayoutConstraint.activate([
-            haveAccountTextView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            haveAccountTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            haveAccountTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            haveAccountTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
   
         ])
  }
                                     
     func setupStackView() {
-        self.addSubview(stackView)
+        view.addSubview(stackView)
         [userTextField, emailTextField, passwordTextField, repeatPasswordTextField, sighnUpButton].forEach
         {stackView.addArrangedSubview($0) }
         
@@ -83,9 +88,9 @@ class SignUpView: UIView {
 
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 120),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             sighnUpButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
         ])
         
