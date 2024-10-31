@@ -15,7 +15,7 @@ class LanguageViewController: UIViewController {
     let tittleEng = "English"
     let tittleRus = "Russian"
     var selectedButton: UIButton?
-    var tagButton = UserDefaults.standard.integer(forKey: "Language")
+    var isSelected = true
    
     private lazy var backButton: UIButton = {
         let element = UIButton()
@@ -34,34 +34,27 @@ class LanguageViewController: UIViewController {
     private lazy var engButton = UIButton(title: tittleEng, image: imageButton)
     private lazy var rusButton = UIButton(title: tittleRus, image: imageButton)
     
-    func chooseTagButton(_ tag: Int) {
-        if tag == 0 {
-            selectedButton = engButton
-        } else {
-            selectedButton = rusButton
+    @objc func englishButtonTapped() {
+        if !engButton.isSelected {
+            engButton.isSelected = true
+            isSelected = engButton.isSelected
+            rusButton.isSelected = false
         }
+        UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
     }
     
-    @objc private func buttonTapped(_ sender: UIButton) {
-        
-        if let currentButton = selectedButton {
-            currentButton.configuration?.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
-            currentButton.configuration?.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
+    @objc func russianButtonTapped() {
+        if !rusButton.isSelected {
+            rusButton.isSelected = true
+            engButton.isSelected = false
+            isSelected = engButton.isSelected
         }
-        
-        sender.configuration?.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        sender.configuration?.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
-        selectedButton = sender
-        UserDefaults.standard.set(sender.tag, forKey: "Language")
-        
-        print(tagButton)
-        }
+        UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseTagButton(tagButton)
         setupViewsConstraints()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,22 +62,20 @@ class LanguageViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Language"
         navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1), NSAttributedString.Key.font: UIFont.init(name: "Inter-SemiBold", size: 24)]
-        
      }
     
     private func setupViewsConstraints() {
         view.backgroundView()
         view.addSubview(backButton)
         view.addButton(engButton)
-        engButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        engButton.addTarget(self, action: #selector(englishButtonTapped), for: .touchUpInside)
         view.addButton(rusButton)
-        rusButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    
+        rusButton.addTarget(self, action: #selector(russianButtonTapped), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             engButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             rusButton.topAnchor.constraint(equalTo: engButton.bottomAnchor, constant: 16),
         ])
     }
-
 }
 

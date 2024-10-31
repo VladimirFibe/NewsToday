@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIView {
     func backgroundView() {
         let backgroundViewColor: UIView = {
@@ -34,10 +33,8 @@ extension UIView {
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -19),
         ])
-        
     }
 }
-
 
 extension UIButton {
     convenience init(title: String, image: String) {
@@ -60,24 +57,29 @@ extension UIButton {
             configuration.imagePadding = 195
         case "English":
             configuration.imagePadding = 215
-            configuration.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            configuration.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
         case "Russian":
             configuration.imagePadding = 215
-            configuration.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
-            configuration.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
         default: print("error")
         }
         
-
         self.init(configuration: configuration)
         if title == "English" {
-            self.tag = 0
+            self.isSelected = UserDefaults.standard.bool(forKey: "selectedLanguage")
         }
         if title == "Russian" {
-            self.tag = 1
+            self.isSelected = !UserDefaults.standard.bool(forKey: "selectedLanguage") // Берем из памяти, По умолчанию "Русский" не выбран
         }
+        self.configurationUpdateHandler = updateButtonAppearance
         self.translatesAutoresizingMaskIntoConstraints = false
 
+        func updateButtonAppearance(_ button: UIButton) {
+            if button.isSelected {
+                button.configuration?.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
+            } else {
+                button.configuration?.baseForegroundColor = #colorLiteral(red: 0.4, green: 0.4235294118, blue: 0.5568627451, alpha: 1)
+                button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
+            }
+        }
     }
 }
