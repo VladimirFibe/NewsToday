@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var signUpVC = SignUpViewController()
     
@@ -24,30 +24,65 @@ class SignInViewController: UIViewController {
     
     let passwordTextField = UITextField.makeTextField(placeholder: "Password", image: UIImage(systemName: "lock")!)
 
+    private let symbolView: UIView = {
+        let openCloseParol: UIButton = {
+            let element = UIButton(type: .custom)
+            element.setImage(UIImage(systemName: "eye"), for: .normal)
+            element.frame = CGRect(x: 20, y: 10, width: 25, height: 25)
+            element.addTarget(
+                SignInViewController.self,
+                action: #selector(togglePasswordVisibility),
+                for: .touchUpInside)
+            return element
+        }()
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 45))
+        iconContainerView.addSubview(openCloseParol)
+        return iconContainerView
+    }()
+    
     let sighnInButton = UIButton.createButton(title: "Sign In")
     
-
+    let bottomLabel = UILabel.makeLabel(font: .systemFont(ofSize: 16), textColor: .black, numberOfLines: 0)
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setupView()
-        
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightView = symbolView
+        passwordTextField.rightViewMode = .always
+
     }
     
     func setupView() {
         view.addHeader(title: "Welcome Back 👋", subTitle: "I am happy to see you again. You can continue where you left off by logging in")
-        
+        view.addSubview(bottomLabel)
         setupStackView()
-        // view.addSubview(haveAccountTextView)
+        setButtons()
+        
+        bottomLabel.text = "Don't have account? Sigh Up"
+    
+        
+        
+        let attributedString = NSMutableAttributedString(string: "Don't have account? ")
+        let boldText = NSAttributedString(string: "Sign In", attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black])
+                attributedString.append(boldText)
+                
+        bottomLabel.attributedText = attributedString
+                
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        bottomLabel.isUserInteractionEnabled = true
+        bottomLabel.addGestureRecognizer(tapGesture)
         
         NSLayoutConstraint.activate([
-            //            haveAccountTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            //            haveAccountTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //            haveAccountTextView.
-            
+            bottomLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            bottomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+
+
     }
     
     func setupStackView() {
@@ -57,10 +92,7 @@ class SignInViewController: UIViewController {
         
         sighnInButton.tintColor = UIColor(named: "purplePrimary")
         sighnInButton.setTitleColor(.white, for: .normal)
-        
-        
-        
-        
+
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -70,4 +102,36 @@ class SignInViewController: UIViewController {
         
         
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
+            let blueColor = UIColor.systemBlue
+            if let iconView = (textField.leftView)?.subviews.first as? UIImageView {
+                iconView.tintColor = updatedText.isEmpty ? .lightGray : blueColor
+            }
+        }
+        return true
+    }
+
+    private func setButtons() {
+        sighnInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+
+    }
+    
+    // MARK: Selector Methods
+
+    @objc func togglePasswordVisibility(sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+    }
+
+    @objc
+    private func signInButtonTapped() {
+        print ("signIn tapped")
+    }
+    @objc private func handleTap() {
+        
+            let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
+        }
+
 }

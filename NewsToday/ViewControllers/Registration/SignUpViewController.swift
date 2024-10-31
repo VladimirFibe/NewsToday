@@ -35,6 +35,39 @@ class SignUpViewController: UIViewController {
         
     let sighnUpButton = UIButton.createButton(title: "Sign Up")
 
+    private let symbolView: UIView = {
+        let openCloseParol: UIButton = {
+            let element = UIButton(type: .custom)
+            element.setImage(UIImage(systemName: "eye"), for: .normal)
+            element.frame = CGRect(x: 20, y: 10, width: 25, height: 25)
+            element.addTarget(
+                SignUpViewController.self,
+                action: #selector(togglePasswordVisibility),
+                for: .touchUpInside)
+            return element
+        }()
+        
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 45))
+        iconContainerView.addSubview(openCloseParol)
+        return iconContainerView
+    }()
+    
+    private let symbolTwoView: UIView = {
+        let openCloseParol: UIButton = {
+            let element = UIButton(type: .custom)
+            element.setImage(UIImage(systemName: "eye"), for: .normal)
+            element.frame = CGRect(x: 20, y: 10, width: 25, height: 25)
+            element.addTarget(
+                SignUpViewController.self,
+                action: #selector(togglePasswordVisibility),
+                for: .touchUpInside)
+            return element
+        }()
+        
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 45))
+        iconContainerView.addSubview(openCloseParol)
+        return iconContainerView
+    }()
 //    private var haveAccountTextView: UITextView {
 //        let attributedString = NSMutableAttributedString(string: "Already have an account? Sign In")
 //        attributedString.addAttribute(.link, value: "https://www.example.com", range: (attributedString.string as NSString).range(of: "Sign In"))
@@ -67,6 +100,18 @@ class SignUpViewController: UIViewController {
         view.addHeader(title: "Welcome to NewsToDay", subTitle: "Hello, guess you are new around here. You can start using the application after sign up ")
         
         setupStackView()
+        
+        
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightView = symbolView
+        passwordTextField.rightViewMode = .always
+        
+        repeatPasswordTextField.isSecureTextEntry = true
+        repeatPasswordTextField.rightView = symbolTwoView
+        repeatPasswordTextField.rightViewMode = .always
+        
+        setButtons()
+        
        // view.addSubview(haveAccountTextView)
         
         NSLayoutConstraint.activate([
@@ -87,6 +132,7 @@ class SignUpViewController: UIViewController {
         sighnUpButton.setTitleColor(.white, for: .normal)
         
         
+        
 
         
         NSLayoutConstraint.activate([
@@ -98,5 +144,19 @@ class SignUpViewController: UIViewController {
         
         
     }
+    private func setButtons() {
+        sighnUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+
+    }
+    
+    @objc func togglePasswordVisibility(sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+    }
+    
+    @objc
+    private func signUpButtonTapped() {
+        print ("signIn tapped")
+    }
+
     }
 
