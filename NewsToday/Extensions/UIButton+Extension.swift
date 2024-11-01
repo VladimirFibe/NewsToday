@@ -55,19 +55,20 @@ extension UIButton {
             configuration.imagePadding = 121
         case "Language" :
             configuration.imagePadding = 195
-        case "English":
+        case "English", "Английский":
             configuration.imagePadding = 215
-        case "Russian":
+        case "Russian", "Русский":
             configuration.imagePadding = 215
         default: print("error")
         }
         
         self.init(configuration: configuration)
-        if title == "English" {
+        switch title {
+        case "English", "Английский":
             self.isSelected = UserDefaults.standard.bool(forKey: "selectedLanguage")
-        }
-        if title == "Russian" {
+        case "Russian", "Русский":
             self.isSelected = !UserDefaults.standard.bool(forKey: "selectedLanguage") // Берем из памяти, По умолчанию "Русский" не выбран
+        default: print("error")
         }
         self.configurationUpdateHandler = updateButtonAppearance
         self.translatesAutoresizingMaskIntoConstraints = false

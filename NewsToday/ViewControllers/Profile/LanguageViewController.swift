@@ -10,7 +10,10 @@ import UIKit
 class LanguageViewController: UIViewController {
 
     //    MARK: - UI Elements
+    var languagePrefenrece: String = "jp"
 
+    
+    
     let imageButton = "check"
     let tittleEng = Texts.LanguageViewController.engButton
     let tittleRus = Texts.LanguageViewController.rusButton
@@ -39,7 +42,12 @@ class LanguageViewController: UIViewController {
             engButton.isSelected = true
             isSelected = engButton.isSelected
             rusButton.isSelected = false
+            
+            languagePrefenrece = (languagePrefenrece == "ru") ? "en" : "ru"
+                  UserDefaults.standard.set([languagePrefenrece], forKey: "myLanguageKey")
         }
+        
+        
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
     }
     
@@ -54,6 +62,9 @@ class LanguageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        languagePrefenrece = UserDefaults.standard.object(forKey: "myLanguageKey") as? String ?? "en"
+        
+
         setupViewsConstraints()
     }
     
