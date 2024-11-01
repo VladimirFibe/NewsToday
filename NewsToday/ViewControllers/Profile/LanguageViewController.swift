@@ -42,11 +42,14 @@ class LanguageViewController: UIViewController {
             engButton.isSelected = true
             isSelected = engButton.isSelected
             rusButton.isSelected = false
-            
-            languagePrefenrece = (languagePrefenrece == "ru") ? "en" : "ru"
-                  UserDefaults.standard.set([languagePrefenrece], forKey: "myLanguageKey")
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {return}
+                  UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+           
+                  
+//            languagePrefenrece = (languagePrefenrece == "ru") ? "en" : "ru"
+//                  UserDefaults.standard.set([languagePrefenrece], forKey: "myLanguageKey")
         }
-        
+       
         
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
     }
@@ -56,6 +59,8 @@ class LanguageViewController: UIViewController {
             rusButton.isSelected = true
             engButton.isSelected = false
             isSelected = engButton.isSelected
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {return}
+                  UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
     }

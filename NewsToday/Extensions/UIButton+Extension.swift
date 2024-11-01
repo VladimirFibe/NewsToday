@@ -51,6 +51,8 @@ extension UIButton {
         switch title {
         case "Sign Out" :
             configuration.imagePadding = 205
+        case "Выйти" :
+            configuration.imagePadding = 208
         case "Terms & Conditions":
             configuration.imagePadding = 121
         case "Language" :
