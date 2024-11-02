@@ -6,6 +6,8 @@
 //
 
 import UIKit
+let LocalizeUserDefaultKey = "LocalizeUserDefaultKey"
+var LocalizeDefaultLanguage = "en"
 
 extension UIView {
     func backgroundView() {
@@ -89,5 +91,15 @@ extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+extension String {
+    func translated() -> String {
+        if let path = Bundle.main.path(forResource: LocalizeDefaultLanguage, ofType: "lproj"), let bundle = Bundle(path: path) {
+            return NSLocalizedString(self, bundle: bundle, comment: "")
+        }
+        
+        return ""
     }
 }
