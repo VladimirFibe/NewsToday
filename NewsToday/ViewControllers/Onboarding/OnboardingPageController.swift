@@ -4,13 +4,13 @@ final class OnboardingPageController: UIPageViewController {
     var action: Callback?
     var pages = [UIViewController]()
     private let pageControl = UIPageControl()
-
+    private let actionButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
         delegate = self
-        
+        view.backgroundColor = .systemBackground
         pages.append(OnboardingViewController(imageName: "photo0",
                                               titleText: "Welcome",
                                               subtitleText: "To the Swift Arcade. Your place for learning Swift."))
@@ -23,12 +23,21 @@ final class OnboardingPageController: UIPageViewController {
         guard let page = pages.first else { return }
         setViewControllers([page], direction: .forward, animated: false)
         setupPageControl()
+        setupActionButton()
     }
 }
 
-private extension OnboardingPageController {
-    @objc func pageControlTapped(_ sender: UIPageControl) {
+@objc private extension OnboardingPageController {
+    func pageControlTapped(_ sender: UIPageControl) {
         print(sender.currentPage)
+        actionButton.setNeedsUpdateConfiguration()
+//        if sender.currentPage == 2 {
+//            action?()
+//        }
+    }
+    
+    func actionButtonTapped() {
+        
     }
 }
 
@@ -43,6 +52,27 @@ private extension OnboardingPageController {
         NSLayoutConstraint.activate([
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pageControl.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50)
+        ])
+    }
+    
+    func setupActionButton() {
+        view.addSubview(actionButton)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = UIColor(named: "bandBlue")
+        actionButton.configuration = config
+        actionButton.configurationUpdateHandler = { [weak self] button in
+            guard let self else { return }
+            var configuration = button.configuration
+            let title = self.pageControl.currentPage < 2 ? "Next" : "Get Started"
+            configuration?.title = title
+            button.configuration = configuration
+        }
+        
+        NSLayoutConstraint.activate([
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }
