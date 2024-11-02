@@ -20,24 +20,34 @@ final class OnboardingPageController: UIPageViewController {
         pages.append(OnboardingViewController(imageName: "photo2",
                                               titleText: "Welcome",
                                               subtitleText: "To the Swift Arcade. Your place for learning Swift."))
-        guard let page = pages.first else { return }
-        setViewControllers([page], direction: .forward, animated: false)
         setupPageControl()
         setupActionButton()
+    }
+    
+    func setCurrentPage(index: Int) {
+        let isForward = NewsDefaults.currentPage < index
+        pageControl.currentPage = index
+        NewsDefaults.currentPage = index
+        actionButton.setNeedsUpdateConfiguration()
+        setViewControllers(
+            [pages[pageControl.currentPage]],
+            direction: isForward ? .forward : .reverse,
+            animated: true
+        )
     }
 }
 
 @objc private extension OnboardingPageController {
     func pageControlTapped(_ sender: UIPageControl) {
-        print(sender.currentPage)
-        actionButton.setNeedsUpdateConfiguration()
-//        if sender.currentPage == 2 {
-//            action?()
-//        }
+        setCurrentPage(index: sender.currentPage)
     }
     
     func actionButtonTapped() {
-        
+        if pageControl.currentPage < pages.count - 1 {
+            setCurrentPage(index: pageControl.currentPage + 1)
+        } else {
+            action?()
+        }
     }
 }
 
@@ -48,6 +58,7 @@ private extension OnboardingPageController {
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.numberOfPages = pages.count
+        setCurrentPage(index: NewsDefaults.currentPage)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -68,7 +79,7 @@ private extension OnboardingPageController {
             configuration?.title = title
             button.configuration = configuration
         }
-        
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .primaryActionTriggered)
         NSLayoutConstraint.activate([
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -103,20 +114,22 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
         if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]  // go next
         } else {
+            action?()
             return pages.first              // wrap first
         }
     }
 }
 
 extension OnboardingPageController: UIPageViewControllerDelegate {
-    
-    // How we keep our pageControl in sync with viewControllers
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-        guard let viewControllers = pageViewController.viewControllers else { return }
-        guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
-        
-        pageControl.currentPage = currentIndex
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        guard let viewControllers = pageViewController.viewControllers,
+                let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
+        setCurrentPage(index: currentIndex)
     }
 }
 

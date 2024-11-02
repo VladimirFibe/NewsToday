@@ -26,7 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func runOnboarding() {
-        setRootViewController(makeOnboarding())
+        if NewsDefaults.isOnboarding {
+            setRootViewController(makeTabbar())
+        } else {
+            setRootViewController(makeOnboarding())
+        }
     }
     
     private func runTabbar() {
@@ -40,8 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeOnboarding() -> UIViewController {
-        let controller = OnboardingPageController()
-        controller.action = { [weak self] in self?.runTabbar()}
+        let controller = OnboardingPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        controller.action = { [weak self] in
+            NewsDefaults.isOnboarding = true
+            self?.runTabbar()
+        }
         return UINavigationController(rootViewController: controller)
     }
     
