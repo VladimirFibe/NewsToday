@@ -22,11 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start() {
-        setRootViewController(makeTabbar())
+        setRootViewController(makeAuth())
     }
     
     private func runOnboarding() {
-        setRootViewController(makeOnboarding())
+        if NewsDefaults.isOnboarding {
+            setRootViewController(makeTabbar())
+        } else {
+            setRootViewController(makeOnboarding())
+        }
     }
     
     private func runTabbar() {
@@ -34,14 +38,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeAuth() -> UIViewController {
-        let controller = AuthViewController()
+        let controller = SignInViewController()
         controller.action = { [weak self] in self?.runOnboarding() }
         return UINavigationController(rootViewController: controller)
     }
     
     private func makeOnboarding() -> UIViewController {
-        let controller = OnboardingPageController()
-        controller.action = { [weak self] in self?.runTabbar()}
+        let controller = OnboardingPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        controller.action = { [weak self] in
+            NewsDefaults.isOnboarding = true
+            self?.runTabbar()
+        }
         return UINavigationController(rootViewController: controller)
     }
     

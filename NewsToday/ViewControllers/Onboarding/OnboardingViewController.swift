@@ -1,13 +1,10 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-    
-    let stackView = UIStackView()
-    
     let imageView = UIImageView()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
-    
+    let padding = 40.0
     init(imageName: String, titleText: String, subtitleText: String) {
         super.init(nibName: nil, bundle: nil)
         imageView.image = UIImage(named: imageName)
@@ -21,48 +18,55 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
+        setupImageView()
+        setupTitleLabel()
+        setupSubtitleLabel()
     }
 }
-
-extension OnboardingViewController {
-    
-    func style() {
-        view.backgroundColor = .systemBackground
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 20
-        
+// MARK: - Setup Views
+private extension OnboardingViewController {
+    func setupImageView() {
+        view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        subtitleLabel.textAlignment = .center
-        
-        subtitleLabel.numberOfLines = 0
-    }
-        
-    func layout() {
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(subtitleLabel)
-        
-        view.addSubview(stackView)
-        
+        imageView.layer.cornerRadius = 12
+        imageView.layer.masksToBounds = true
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            
-            subtitleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: subtitleLabel.trailingAnchor, multiplier: 2),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            imageView.heightAnchor.constraint(equalToConstant: 336)
         ])
     }
+    
+    func setupTitleLabel() {
+        view.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 82),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
+        ])
+    }
+    
+    func setupSubtitleLabel() {
+        view.addSubview(subtitleLabel)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.textAlignment = .center
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+            subtitleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
+        ])
+    }
+
 }
+
+@available(iOS 17.0, *)
+#Preview {
+    OnboardingViewController(imageName: "photo0",
+                             titleText: "Welcome",
+                             subtitleText: "To the Swift Arcade. Your place for learning Swift.")
+}
+

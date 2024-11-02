@@ -8,7 +8,7 @@
 import UIKit
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-    
+    var action: Callback?
     var signUpVC = SignUpViewController()
     
     private let stackView: UIStackView = {
@@ -23,7 +23,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     
     let passwordTextField = UITextField.makeTextField(placeholder: "Password", image: UIImage(systemName: "lock")!)
-
+    
     private let symbolView: UIView = {
         let openCloseParol: UIButton = {
             let element = UIButton(type: .custom)
@@ -54,7 +54,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         passwordTextField.isSecureTextEntry = true
         passwordTextField.rightView = symbolView
         passwordTextField.rightViewMode = .always
-
+        
     }
     
     func setupView() {
@@ -64,15 +64,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         setButtons()
         
         bottomLabel.text = "Don't have account? Sigh Up"
-    
+        
         
         
         let attributedString = NSMutableAttributedString(string: "Don't have account? ")
         let boldText = NSAttributedString(string: "Sign In", attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black])
-                attributedString.append(boldText)
-                
+        attributedString.append(boldText)
+        
         bottomLabel.attributedText = attributedString
-                
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         bottomLabel.isUserInteractionEnabled = true
         bottomLabel.addGestureRecognizer(tapGesture)
@@ -81,8 +81,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             bottomLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             bottomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-
-
+        
+        
     }
     
     func setupStackView() {
@@ -92,7 +92,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         sighnInButton.tintColor = UIColor(named: "purplePrimary")
         sighnInButton.setTitleColor(.white, for: .normal)
-
+        
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -112,26 +112,26 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         }
         return true
     }
-
+    
     private func setButtons() {
         sighnInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
-
+        
     }
     
     // MARK: Selector Methods
-
+    
     @objc func togglePasswordVisibility(sender: UIButton) {
         passwordTextField.isSecureTextEntry.toggle()
     }
-
+    
     @objc
     private func signInButtonTapped() {
-        print ("signIn tapped")
+        action?()
     }
     @objc private func handleTap() {
         
-            let signUpViewController = SignUpViewController()
+        let signUpViewController = SignUpViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
-        }
-
+    }
+    
 }
