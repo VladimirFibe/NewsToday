@@ -12,14 +12,14 @@ final class OnboardingPageController: UIPageViewController {
         delegate = self
         view.backgroundColor = .systemBackground
         pages.append(OnboardingViewController(imageName: "photo0",
-                                              titleText: "Welcome",
-                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+                                              titleText: "First to know",
+                                              subtitleText: "Catch the latest news from around the world, curated just for you."))
         pages.append(OnboardingViewController(imageName: "photo1",
-                                              titleText: "Welcome",
-                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+                                              titleText: "Personalize your feed",
+                                              subtitleText: "Choose your favorite categories to see what matters most to you."))
         pages.append(OnboardingViewController(imageName: "photo2",
-                                              titleText: "Welcome",
-                                              subtitleText: "To the Swift Arcade. Your place for learning Swift."))
+                                              titleText: "Save & Share",
+                                              subtitleText: "Bookmark articles and share them with friends in just one tap."))
         setupPageControl()
         setupActionButton()
     }
@@ -68,22 +68,31 @@ private extension OnboardingPageController {
     
     func setupActionButton() {
         view.addSubview(actionButton)
-        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        
         var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = UIColor(named: "bandBlue")
+        config.baseBackgroundColor = UIColor(named: "brandPurple")
+        
+        let font = UIFont(name: "Inter-SemiBold", size: 16) ?? .systemFont(ofSize: 16)
+        config.attributedTitle = AttributedString("Next", attributes: AttributeContainer([.font: font]))
+
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.layer.cornerRadius = 12
         actionButton.configuration = config
+        
         actionButton.configurationUpdateHandler = { [weak self] button in
             guard let self else { return }
             var configuration = button.configuration
             let title = self.pageControl.currentPage < 2 ? "Next" : "Get Started"
-            configuration?.title = title
+            configuration?.attributedTitle = AttributedString(title, attributes: AttributeContainer([.font: font]))
             button.configuration = configuration
         }
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .primaryActionTriggered)
         NSLayoutConstraint.activate([
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            actionButton.heightAnchor.constraint(equalToConstant: 56)
+
         ])
     }
 }
