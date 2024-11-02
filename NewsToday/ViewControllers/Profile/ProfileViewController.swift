@@ -10,12 +10,13 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     //    MARK: - UI Elements
-    let titleButton1 = "Sign Out"
-    let imageButton1 = "signout"
-    let titleButton2 = "Terms & Conditions"
-    let imageButton2 = "angle-right"
-    let titleButton3 = "Language"
-    let imageButton3 = "angle-right"
+    
+    let imageSignOutButton = "signout"
+    let imageTermsConditionsButton = "angle-right"
+    let imageLanguageButton = "angle-right"
+    let userPicture = "pictureUser"
+    let userName = "Dev P"
+    let userMail = "dev@gmail.com"
     
     private lazy var backgroundViewColor: UIView = {
         let element = UIView()
@@ -43,7 +44,7 @@ class ProfileViewController: UIViewController {
     private lazy var pictureUser: UIImageView = {
         let element = UIImageView()
         element.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
-        element.image = UIImage(named: "pictureUser")
+        element.image = UIImage(named: userPicture)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -61,7 +62,7 @@ class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
-        element.text = "Dev P"
+        element.text = userName
         element.textColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
         element.font = UIFont(name: "Inter-SemiBold", size: 16)
         element.textAlignment = .left
@@ -71,7 +72,7 @@ class ProfileViewController: UIViewController {
     
     private lazy var mailLabel: UILabel = {
         let element = UILabel()
-        element.text = "dev@gmail.com"
+        element.text = userMail
         element.textColor = UIColor(red: 124/255, green: 130/255, blue: 161/255, alpha: 1)
         element.font = UIFont(name: "Inter-Regular", size: 14)
         element.textAlignment = .left
@@ -79,69 +80,9 @@ class ProfileViewController: UIViewController {
         return element
     }()
     
-    private lazy var signOutButton = UIButton(title: Texts.ProfileViewController.signOutButton, image: imageButton1)
-    private lazy var termsConditionsButton = UIButton(title: Texts.ProfileViewController.termsConditionsButton, image: imageButton2)
-    private lazy var languageButton = UIButton(title: Texts.ProfileViewController.languageButton, image: imageButton3)
-    
-//    private lazy var signOutButton: UIButton = {
-//
-//        var configuration = UIButton.Configuration.filled()
-//        configuration.title = "Sign Out"
-//        configuration.attributedTitle?.font = UIFont(name: "Inter-SemiBold", size: 16)
-//        configuration.titleAlignment = .leading
-//        configuration.baseForegroundColor = UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1)
-//        configuration.image = UIImage(named: "signout")
-//        configuration.imagePlacement = .trailing
-//        configuration.imagePadding = 205
-//        configuration.background.cornerRadius = 12
-//        configuration.baseBackgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
-//        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
-//
-//        let element = UIButton(configuration: configuration)
-//        element.addTarget(self, action: #selector(signoutButtonTapped), for: .touchUpInside)
-//        element.translatesAutoresizingMaskIntoConstraints = false
-//        return element
-//    }()
-    
-//    private lazy var termsConditionsButton: UIButton = {
-//
-//        var configuration = UIButton.Configuration.filled()
-//        configuration.title = "Terms & Conditions"
-//        configuration.attributedTitle?.font = UIFont(name: "Inter-SemiBold", size: 16)
-//        configuration.titleAlignment = .leading
-//        configuration.baseForegroundColor = UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1)
-//        configuration.image = UIImage(named: "angle-right")
-//        configuration.imagePlacement = .trailing
-//        configuration.imagePadding = 121
-//        configuration.background.cornerRadius = 12
-//        configuration.baseBackgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
-//        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
-//
-//        let element = UIButton(configuration: configuration)
-//        element.addTarget(self, action: #selector(termsConditionsButtonTapped), for: .touchUpInside)
-//        element.translatesAutoresizingMaskIntoConstraints = false
-//        return element
-//    }()
-    
-//    private lazy var languageButton: UIButton = {
-//
-//        var configuration = UIButton.Configuration.filled()
-//        configuration.title = "Language"
-//        configuration.attributedTitle?.font = UIFont(name: "Inter-SemiBold", size: 16)
-//        configuration.titleAlignment = .leading
-//        configuration.baseForegroundColor = UIColor(red: 102/255, green: 108/255, blue: 142/255, alpha: 1)
-//        configuration.image = UIImage(named: "angle-right")
-//        configuration.imagePlacement = .trailing
-//        configuration.imagePadding = 195
-//        configuration.background.cornerRadius = 12
-//        configuration.baseBackgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
-//        configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
-//
-//        let element = UIButton(configuration: configuration)
-//        element.addTarget(self, action: #selector(languageButtonTapped), for: .touchUpInside)
-//        element.translatesAutoresizingMaskIntoConstraints = false
-//        return element
-//    }()
+    private lazy var signOutButton = UIButton(title: Texts.ProfileViewController.signOutButton, image: imageSignOutButton)
+    private lazy var termsConditionsButton = UIButton(title: Texts.ProfileViewController.termsConditionsButton, image: imageTermsConditionsButton)
+    private lazy var languageButton = UIButton(title: Texts.ProfileViewController.languageButton, image: imageLanguageButton)
 
     //     MARK: - Lifecycle Methods
     override func viewDidLoad() {
