@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,7 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start() {
-        setRootViewController(makeAuth())
+        if Auth.auth().currentUser == nil {
+            setRootViewController(makeAuth())
+        } else {
+            try? Auth.auth().signOut()
+            runOnboarding()
+        }
     }
     
     private func runOnboarding() {
