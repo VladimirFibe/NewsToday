@@ -150,10 +150,12 @@ class SignUpViewController: UIViewController {
     
     @objc
     private func signUpButtonTapped() {
-        guard let email = userTextField.text,
+        print(#function)
+        guard let email = emailTextField.text,
                 let password = passwordTextField.text,
-                let name = userTextField.text
+              let name = userTextField.text
         else  { return }
+        print(email, password, name)
         Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
             guard error == nil, let result else { return }
             let person = Person(id: result.user.uid, name: name, email: email)

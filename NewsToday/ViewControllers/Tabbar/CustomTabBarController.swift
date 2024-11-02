@@ -10,6 +10,14 @@ import UIKit
 class CustomTabBarController: UITabBarController {
     var action: Callback?
     private let customTabBar = CustomTabBar()
+    init(action: Callback? = nil) {
+        self.action = action
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +38,9 @@ class CustomTabBarController: UITabBarController {
         let bookMarksVC = BookMarksViewController()
         bookMarksVC.tabBarItem.image = UIImage(named: "bookmark")
         
-        let profileVC = UINavigationController(rootViewController: ProfileViewController())
+        let controller = ProfileViewController()
+        controller.action = action
+        let profileVC = UINavigationController(rootViewController: controller)
         profileVC.tabBarItem.image = UIImage(named: "user")
         
         if browseVC.tabBarItem.image == nil {

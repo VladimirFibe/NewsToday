@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeAuth() -> UIViewController {
         let controller = SignInViewController()
-        controller.action = { [weak self] in self?.runOnboarding() }
+        controller.action = { [weak self] in self?.start() }
         return UINavigationController(rootViewController: controller)
     }
     
@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let controller = OnboardingPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         controller.action = { [weak self] in
             NewsDefaults.isOnboarding = true
-            self?.runTabbar()
+            self?.start()
         }
         return UINavigationController(rootViewController: controller)
     }
@@ -63,8 +63,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeTabbar() -> UIViewController {
-        let controller = CustomTabBarController()
-        return controller
+        CustomTabBarController(action: { [weak self] in
+            print("Make Tabbar")
+            try? Auth.auth().signOut()
+            self?.start()
+        })
     }
     
     func setRootViewController(_ controller: UIViewController, animated: Bool = true) {
