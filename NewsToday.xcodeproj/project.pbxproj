@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044B41112CCE7EFA00E13355 /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41102CCE7EFA00E13355 /* CustomSearchView.swift */; };
+		044B41132CCFF7ED00E13355 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41122CCFF7EA00E13355 /* TabsView.swift */; };
+		044B41182CD36B4400E13355 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41172CD36B4400E13355 /* FavoriteViewController.swift */; };
+		044B411A2CD36B9700E13355 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41192CD36B9700E13355 /* FavoriteViewCell.swift */; };
+		044B411C2CD3D61B00E13355 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B411B2CD3D61B00E13355 /* Favorites.swift */; };
 		458D22FD2CCC8A950088AA02 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */; };
 		458D23042CCC8B290088AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23032CCC8B290088AA02 /* UIView+Extensions.swift */; };
 		458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */; };
@@ -44,6 +49,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		044B41102CCE7EFA00E13355 /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
+		044B41122CCFF7EA00E13355 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		044B41172CD36B4400E13355 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		044B41192CD36B9700E13355 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		044B411B2CD3D61B00E13355 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		458D23032CCC8B290088AA02 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -93,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044B41162CD36ADB00E13355 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				044B41172CD36B4400E13355 /* FavoriteViewController.swift */,
+				044B41192CD36B9700E13355 /* FavoriteViewCell.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		458D23022CCC8B050088AA02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +152,12 @@
 				458D23332CCC9E420088AA02 /* Profile */,
 				458D23342CCC9E4E0088AA02 /* BookMarks */,
 				458D23322CCC9A4E0088AA02 /* Onboarding */,
-				458D23362CCC9E720088AA02 /* Browse */,
-				458D23352CCC9E640088AA02 /* Tabbar */,
 				458D232B2CCC97690088AA02 /* Auth */,
+				044B41162CD36ADB00E13355 /* Favorite */,
+				458D23362CCC9E720088AA02 /* Browse */,
+				458D23332CCC9E420088AA02 /* Profile */,
+				458D23342CCC9E4E0088AA02 /* BookMarks */,
+				458D23352CCC9E640088AA02 /* Tabbar */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -202,6 +224,8 @@
 			children = (
 				458D23092CCC8C0C0088AA02 /* BrowseViewController.swift */,
 				458D230A2CCC8C0C0088AA02 /* NewsCell.swift */,
+				044B41102CCE7EFA00E13355 /* CustomSearchView.swift */,
+				044B41122CCFF7EA00E13355 /* TabsView.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -210,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				458D23182CCC8C400088AA02 /* News.swift */,
+				044B411B2CD3D61B00E13355 /* Favorites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,16 +386,21 @@
 				8F5A8E112CCC0A9E00E98CB7 /* AppDelegate.swift in Sources */,
 				458D23312CCC99AE0088AA02 /* Bundle+Extension.swift in Sources */,
 				458D232A2CCC96D20088AA02 /* AuthViewController.swift in Sources */,
+				044B41112CCE7EFA00E13355 /* CustomSearchView.swift in Sources */,
+				044B41182CD36B4400E13355 /* FavoriteViewController.swift in Sources */,
 				458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */,
 				458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */,
 				8F43D8D12CCD3D710093E8DB /* TermsViewController.swift in Sources */,
+				044B411C2CD3D61B00E13355 /* Favorites.swift in Sources */,
 				458D233C2CCCB5D10088AA02 /* APIRoute.swift in Sources */,
 				DE904C6B2CD1738B00B79B11 /* UITextField + Extention.swift in Sources */,
+				044B41132CCFF7ED00E13355 /* TabsView.swift in Sources */,
 				458D233D2CCCB5D10088AA02 /* APIClient.swift in Sources */,
 				DE904C6D2CD3F6FF00B79B11 /* SignUpViewController.swift in Sources */,
 				458D231A2CCC8C400088AA02 /* Store.swift in Sources */,
 				8F43D8D22CCD3D710093E8DB /* ProfileViewController.swift in Sources */,
 				DE904C662CD165FF00B79B11 /* SignInViewController.swift in Sources */,
+				044B411A2CD36B9700E13355 /* FavoriteViewCell.swift in Sources */,
 				458D231B2CCC8C400088AA02 /* News.swift in Sources */,
 				8F5A8E132CCC0A9E00E98CB7 /* SceneDelegate.swift in Sources */,
 			);
