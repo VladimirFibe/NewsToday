@@ -15,7 +15,7 @@ extension UIView {
             label.text = title
             label.font = UIFont(name: "Inter-SemiBold", size: 24) ?? .boldSystemFont(ofSize: 24)
             label.textAlignment = .left
-            label.textColor = UIColor(named: "black Primary")
+            label.textColor = UIColor(named: "blackPrimary")
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
