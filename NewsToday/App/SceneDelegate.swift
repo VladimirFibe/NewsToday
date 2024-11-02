@@ -52,6 +52,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: controller)
     }
     
+    private func makeFavoriteViewController() -> UIViewController {
+        let controller = FavoriteViewController()
+        return UINavigationController(rootViewController: controller)
+    }
+    
     private func makeTabbar() -> UIViewController {
         let controller = CustomTabBarController()
         return controller
