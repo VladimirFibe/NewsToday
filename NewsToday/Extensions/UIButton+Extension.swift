@@ -48,34 +48,25 @@ extension UIButton {
         configuration.background.cornerRadius = 12
         configuration.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16)
-        switch title {
-        case "Sign Out" :
-            configuration.imagePadding = 205
-        case "Выйти" :
-            configuration.imagePadding = 208
-        case "Terms & Conditions":
-            configuration.imagePadding = 121
-        case "Language" :
-            configuration.imagePadding = 195
-        case "English", "Английский":
-            configuration.imagePadding = 215
-        case "Russian", "Русский":
-            configuration.imagePadding = 215
-        default: print("error")
-        }
         
         self.init(configuration: configuration)
+        self.contentHorizontalAlignment = .fill
         switch title {
         case "English", "Английский":
             self.isSelected = UserDefaults.standard.bool(forKey: "selectedLanguage")
+            addEmtyImage()
         case "Russian", "Русский":
             self.isSelected = !UserDefaults.standard.bool(forKey: "selectedLanguage") // Берем из памяти, По умолчанию "Русский" не выбран
+            addEmtyImage()
         default: print("error")
         }
+        
         self.configurationUpdateHandler = updateButtonAppearance
         self.translatesAutoresizingMaskIntoConstraints = false
-
+        
+        
         func updateButtonAppearance(_ button: UIButton) {
+            
             if button.isSelected {
                 button.configuration?.baseForegroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.8431372549, alpha: 1)
@@ -84,5 +75,19 @@ extension UIButton {
                 button.configuration?.baseBackgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9568627451, blue: 0.9647058824, alpha: 1)
             }
         }
+        func addEmtyImage() {
+            if !self.isSelected {
+                let size = CGSize(width: 24, height: 24)
+                self.configuration?.image = UIImage.emtyImage(with: size)
+            }
+        }
+    }
+}
+extension UIImage {
+    static func emtyImage(with size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContext(size)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

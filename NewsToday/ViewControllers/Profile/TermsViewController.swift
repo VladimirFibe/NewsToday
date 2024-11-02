@@ -105,7 +105,6 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
     
     private func setupViews() {
         view.addSubview(backgroundViewColor)
-//        view.addSubview(titleLabel)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(contentLabel)

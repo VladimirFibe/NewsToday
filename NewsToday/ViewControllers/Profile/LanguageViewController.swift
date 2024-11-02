@@ -10,9 +10,7 @@ import UIKit
 class LanguageViewController: UIViewController {
 
     //    MARK: - UI Elements
-    var languagePrefenrece: String = "jp"
-
-    
+    var languagePrefenrece: String = "en"
     
     let imageButton = "check"
     let tittleEng = Texts.LanguageViewController.engButton
@@ -44,13 +42,7 @@ class LanguageViewController: UIViewController {
             rusButton.isSelected = false
             guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {return}
                   UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-           
-                  
-//            languagePrefenrece = (languagePrefenrece == "ru") ? "en" : "ru"
-//                  UserDefaults.standard.set([languagePrefenrece], forKey: "myLanguageKey")
         }
-       
-        
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
     }
     
@@ -68,8 +60,7 @@ class LanguageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         languagePrefenrece = UserDefaults.standard.object(forKey: "myLanguageKey") as? String ?? "en"
-        
-
+    
         setupViewsConstraints()
     }
     
