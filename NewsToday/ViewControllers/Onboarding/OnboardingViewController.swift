@@ -42,8 +42,10 @@ private extension OnboardingViewController {
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "Inter-SemiBold", size: 24) ?? .boldSystemFont(ofSize: 24)
+        titleLabel.textColor = UIColor(named: "blackPrimary")
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 82),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 105),
             titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
         ])
@@ -54,6 +56,8 @@ private extension OnboardingViewController {
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
+        subtitleLabel.font = UIFont(name: "Inter-Regular", size: 16) ?? .systemFont(ofSize: 16)
+        subtitleLabel.textColor = UIColor(named: "GreyPrimary")
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             subtitleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
