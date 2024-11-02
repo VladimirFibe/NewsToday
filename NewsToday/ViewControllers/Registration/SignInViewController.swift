@@ -128,19 +128,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     @objc
     private func signInButtonTapped() {
-        print(#function)
         guard let email = userTextField.text, let password = passwordTextField.text else  { return }
-        Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
-            guard error == nil, let result else { return }
-            let person = Person(id: result.user.uid, name: "Vladimir", email: email)
-            try? Firestore.firestore().collection("persons").document(result.user.uid).setData(from: person) { error in
-                self?.action?()
-            }
+        Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
+            guard error == nil else { return }
+            self?.action?()
         }
     }
     @objc private func handleTap() {
         
         let signUpViewController = SignUpViewController()
+        signUpViewController.action = action
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
     

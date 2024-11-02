@@ -19,21 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        start()
+        runOnboarding()
     }
     
     private func start() {
         if Auth.auth().currentUser == nil {
             setRootViewController(makeAuth())
         } else {
-            try? Auth.auth().signOut()
-            runOnboarding()
+            setRootViewController(makeTabbar())
         }
     }
     
     private func runOnboarding() {
         if NewsDefaults.isOnboarding {
-            setRootViewController(makeTabbar())
+            start()
         } else {
             setRootViewController(makeOnboarding())
         }

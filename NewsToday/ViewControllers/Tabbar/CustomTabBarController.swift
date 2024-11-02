@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
-    
+    var action: Callback?
     private let customTabBar = CustomTabBar()
     
     override func viewDidLoad() {

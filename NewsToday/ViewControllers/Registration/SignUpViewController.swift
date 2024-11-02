@@ -5,17 +5,12 @@
 //  Created by Надежда Капацина on 31.10.2024.
 //
 
-//
-//  SignUp.swift
-//  NewsToday
-//
-//  Created by Надежда Капацина on 29.10.2024.
-//
-
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
-    
+    var action: Callback?
     private let stackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
@@ -31,10 +26,10 @@ class SignUpViewController: UIViewController {
     let passwordTextField = UITextField.makeTextField(placeholder: "Password", image: UIImage(systemName: "lock")!)
     
     let repeatPasswordTextField = UITextField.makeTextField(placeholder: " Repeat Password", image: UIImage(systemName: "lock")!)
-
-        
+    
+    
     let sighnUpButton = UIButton.createButton(title: "Sign Up")
-
+    
     private let symbolView: UIView = {
         let openCloseParol: UIButton = {
             let element = UIButton(type: .custom)
@@ -68,33 +63,33 @@ class SignUpViewController: UIViewController {
         iconContainerView.addSubview(openCloseParol)
         return iconContainerView
     }()
-//    private var haveAccountTextView: UITextView {
-//        let attributedString = NSMutableAttributedString(string: "Already have an account? Sign In")
-//        attributedString.addAttribute(.link, value: "https://www.example.com", range: (attributedString.string as NSString).range(of: "Sign In"))
-//        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: attributedString.length))
-//        
-//        let textView = UITextView()
-//        textView.linkTextAttributes = [.font: UIFont(name: "Inter-Medium", size: 16)!]
-//        textView.backgroundColor = .clear
-//        textView.attributedText = attributedString
-//        textView.textColor = .black
-//        textView.isSelectable = true
-//        textView.isEditable = false
-//        textView.isScrollEnabled = false
-//        textView.delaysContentTouches = false
-//        textView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        
-//        return textView
-//    }
-//    
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = .white
-            
-            setupView()
-
-        }
+    //    private var haveAccountTextView: UITextView {
+    //        let attributedString = NSMutableAttributedString(string: "Already have an account? Sign In")
+    //        attributedString.addAttribute(.link, value: "https://www.example.com", range: (attributedString.string as NSString).range(of: "Sign In"))
+    //        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: attributedString.length))
+    //
+    //        let textView = UITextView()
+    //        textView.linkTextAttributes = [.font: UIFont(name: "Inter-Medium", size: 16)!]
+    //        textView.backgroundColor = .clear
+    //        textView.attributedText = attributedString
+    //        textView.textColor = .black
+    //        textView.isSelectable = true
+    //        textView.isEditable = false
+    //        textView.isScrollEnabled = false
+    //        textView.delaysContentTouches = false
+    //        textView.translatesAutoresizingMaskIntoConstraints = false
+    //
+    //
+    //        return textView
+    //    }
+    //
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        setupView()
+        
+    }
     
     func setupView() {
         view.addHeader(title: "Welcome to NewsToDay", subTitle: "Hello, guess you are new around here. You can start using the application after sign up ")
@@ -112,17 +107,17 @@ class SignUpViewController: UIViewController {
         
         setButtons()
         
-       // view.addSubview(haveAccountTextView)
+        // view.addSubview(haveAccountTextView)
         
         NSLayoutConstraint.activate([
-//            haveAccountTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-//            haveAccountTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            //            haveAccountTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            //            haveAccountTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-//            haveAccountTextView.
-  
+            //            haveAccountTextView.
+            
         ])
- }
-                                    
+    }
+    
     func setupStackView() {
         view.addSubview(stackView)
         [userTextField, emailTextField, passwordTextField, repeatPasswordTextField, sighnUpButton].forEach
@@ -133,7 +128,7 @@ class SignUpViewController: UIViewController {
         
         
         
-
+        
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
@@ -146,7 +141,7 @@ class SignUpViewController: UIViewController {
     }
     private func setButtons() {
         sighnUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-
+        
     }
     
     @objc func togglePasswordVisibility(sender: UIButton) {
@@ -155,8 +150,18 @@ class SignUpViewController: UIViewController {
     
     @objc
     private func signUpButtonTapped() {
-        print ("signIn tapped")
+        guard let email = userTextField.text,
+                let password = passwordTextField.text,
+                let name = userTextField.text
+        else  { return }
+        Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
+            guard error == nil, let result else { return }
+            let person = Person(id: result.user.uid, name: name, email: email)
+            try? Firestore.firestore().collection("persons").document(result.user.uid).setData(from: person) { error in
+                self?.action?()
+            }
+        }
     }
-
-    }
+    
+}
 
