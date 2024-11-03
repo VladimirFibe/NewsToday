@@ -11,30 +11,46 @@ class TermsViewController: UIViewController {
 
     
     let content = """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+Terms of Use for NewToDay Mobile App
+Last updated: November 3, 2024
 
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Please read these Terms and Conditions carefully before using our NewToDay app. By downloading and using the app, you agree to these terms. If you do not agree with them, please refrain from using the app.
 
+1. General Terms
+1.1. NewToDay is a platform that provides access to news from various sources. We enable users to read, save, and share news articles. 1.2. These Terms and Conditions govern the use of the app and any related services. 1.3. We reserve the right to modify these terms at any time. The current version will always be available in the app.
 
+2. App Usage
+2.1. License to Use. We grant you a limited, non-exclusive, non-transferable license to use the app for personal, non-commercial purposes. 2.2. Restrictions. Users are prohibited from:
+* Modifying, duplicating, distributing, or creating derivative works based on the app.
+* Using the app for illegal purposes or infringing on third-party rights.
 
+3. Account
+3.1. Certain app features may require creating an account. 3.2. You must provide accurate and up-to-date information during registration. 3.3. You are responsible for safeguarding your account credentials and must notify us immediately of any unauthorized access.
 
+4. Privacy Policy
+4.1. We are committed to protecting your privacy and data security. For more information on how we collect, use, and store your data, please refer to our Privacy Policy.
 
+5. Content
+5.1. All materials available in the app are provided by third-party sources and/or rights holders. 5.2. We do not take responsibility for the accuracy, completeness, or timeliness of news materials. 5.3. Users may not use app materials without permission from the rights holders.
 
+6. Liability
+6.1. The app is provided “as is.” We do not guarantee that the app will operate error-free or without interruptions. 6.2. We are not liable for:
+* Any loss or damage arising from using the app.
+* The content of news articles provided by third-party sources.
 
+7. App Changes
+7.1. We reserve the right to modify, suspend, or discontinue the app or individual features without prior notice.
 
+8. Termination of Use
+8.1. We may suspend or terminate your access to the app in the event of a breach of these terms.
 
+9. Governing Law
+9.1. These Terms and Conditions are governed and interpreted by the laws of the country where the company headquarters are located.
 
-+++++
-ghdjhjgkh
-hvjhkh
-jbjkhklj
+10. Contact
+If you have any questions regarding these Terms and Conditions, please contact us at: support@newtoday.com.
 
-
-hjvjjkj
 """
     private lazy var backgroundViewColor: UIView = {
         let element = UIView()
@@ -93,7 +109,8 @@ hjvjjkj
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrollView.showsVerticalScrollIndicator = false
+
         setupViews()
         setConstraints()
     }
