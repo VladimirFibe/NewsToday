@@ -12,7 +12,7 @@ class LanguageViewController: UIViewController {
     
     
     //    MARK: - UI Elements
-    var languagePrefenrece: String = "en"
+//    var languagePrefenrece: String = "en"
     
     let imageButton = "check"
     let tittleEng = Texts.LanguageViewController.engButton
@@ -46,9 +46,9 @@ class LanguageViewController: UIViewController {
                   UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
-        LocalizeDefaultLanguage = "en"
-        UserDefaults.standard.setValue(LocalizeDefaultLanguage, forKey: LocalizeUserDefaultKey)
-        refreshLanguage()
+//        LocalizeDefaultLanguage = "en"
+//        UserDefaults.standard.setValue(LocalizeDefaultLanguage, forKey: LocalizeUserDefaultKey)
+//        refreshLanguage()
     }
     
     @objc func russianButtonTapped() {
@@ -60,29 +60,26 @@ class LanguageViewController: UIViewController {
                   UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
         UserDefaults.standard.set(isSelected, forKey: "selectedLanguage")
-        LocalizeDefaultLanguage = "ru"
-        UserDefaults.standard.setValue(LocalizeDefaultLanguage, forKey: LocalizeUserDefaultKey)
-        refreshLanguage()
+//        LocalizeDefaultLanguage = "ru"
+//        UserDefaults.standard.setValue(LocalizeDefaultLanguage, forKey: LocalizeUserDefaultKey)
+//        refreshLanguage()
     }
-//    ___________
-   
-    
-//    _____________
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        languagePrefenrece = UserDefaults.standard.object(forKey: "myLanguageKey") as? String ?? "en"
-        LocalizeDefaultLanguage = UserDefaults.standard.string(forKey: LocalizeUserDefaultKey) ?? "en"
+//        LocalizeDefaultLanguage = UserDefaults.standard.string(forKey: LocalizeUserDefaultKey) ?? "en"
         setupViewsConstraints()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        refreshLanguage()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        refreshLanguage()
+//    }
     
-    private func refreshLanguage() {
-        navigationItem.title = "languageViewController title".translated()
-    }
+//    private func refreshLanguage() {
+//        navigationItem.title = "languageViewController title".translated()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
