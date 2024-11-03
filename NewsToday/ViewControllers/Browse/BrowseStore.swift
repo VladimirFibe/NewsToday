@@ -9,7 +9,7 @@ import Foundation
 //import Combine
 
 enum BrowseEvent {
-    case didLoadSections
+    case didLoadSections([News])
 }
 
 enum BrowseAction {
@@ -27,6 +27,6 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     
     private func fetch() async throws {
         let response: NewsResponse = try await APIClient.shared.request(.getNews)
-        print("fetch news", response.articles.count)
+        sendEvent(.didLoadSections(response.articles))
     }
 }

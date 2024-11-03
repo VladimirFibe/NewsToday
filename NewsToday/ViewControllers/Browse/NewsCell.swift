@@ -109,9 +109,9 @@ class NewsCell: UICollectionViewCell {
     }
     
     // Конфигурация ячейки
-    func configure(with title: String, image: UIImage?, tag: String) {
-        titleLabel.text = title
-        imageView.image = image
-        tagLabel.text = tag
+    func configure(with news: News) {
+        titleLabel.text = news.title
+        imageView.image = UIImage(named: "1")
+        tagLabel.text = news.author
     }
 }
