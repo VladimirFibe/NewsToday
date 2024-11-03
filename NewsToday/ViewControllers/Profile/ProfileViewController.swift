@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     //    MARK: - UI Elements
-    
+    var action: Callback?
     let imageSignOutButton = "signout"
     let imageTermsConditionsButton = "angle-right"
     let imageLanguageButton = "angle-right"
@@ -137,8 +137,11 @@ class ProfileViewController: UIViewController {
     // MARK: - Button Action
     
     @objc private func signoutButtonTapped() {
-        let nextViewController = BrowseViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
+        if let action {
+            action()
+        } else {
+            print("что то не так")
+        }
     }
     
     @objc private func termsConditionsButtonTapped() {
