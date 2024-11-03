@@ -71,7 +71,7 @@ class BookMarksCell: UITableViewCell {
   
     public func configure(with news: News) {
         
-        nameLabel.text = news.sourse.name
+        nameLabel.text = news.sourse?.name
         titleLabel.text = news.title
         imageIV.image = UIImage(named: news.urlToImage ?? "")
 

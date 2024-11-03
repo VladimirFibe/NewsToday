@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsCell: UICollectionViewCell {
-    
+    var news: News?
     static let identifier = "NewsCell"
     
     //
@@ -49,13 +50,19 @@ class NewsCell: UICollectionViewCell {
         return label
     }()
     
-    private let bookmarkIcon: UIButton = {
+    private lazy var bookmarkIcon: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "bookmark"), for: .normal)
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleBookmark), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func handleBookmark() {
+        guard let news else { return }
+        print(news.title)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,9 +116,12 @@ class NewsCell: UICollectionViewCell {
     }
     
     // Конфигурация ячейки
-    func configure(with title: String, image: UIImage?, tag: String) {
-        titleLabel.text = title
-        imageView.image = image
-        tagLabel.text = tag
+    func configure(with news: News) {
+        self.news = news
+        titleLabel.text = news.title
+        if let url = news.urlToImage {
+            imageView.kf.setImage(with: URL(string: url))
+        }
+        tagLabel.text = "POLITICS"
     }
 }

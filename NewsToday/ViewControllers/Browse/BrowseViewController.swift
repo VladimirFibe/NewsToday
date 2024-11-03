@@ -10,6 +10,9 @@ import UIKit
 class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     private let searchBar = CustomSearchView()
+    private let store = BrowseStore()
+    private var bag = Bag()
+    private var news: [News] = []
     
     private lazy var tabsView: TabsView = {
         let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming",
@@ -43,6 +46,26 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         setupSearchView()
         setupTabsView()
         setupCollectionView()
+        store.sendAction(.fetch)
+        setupObservers()
+    }
+    
+    private func setupObservers() {
+        store
+            .events
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case let .didLoadSections(news):
+                    self.reloadNews(news)
+                }
+            }.store(in: &bag)
+    }
+    
+    private func reloadNews(_ news: [News]) {
+        self.news = news
+        collectionView.reloadData()
     }
     
     private func setupHeaderView() {
@@ -97,7 +120,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
 
 extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // количество карточек в коллекции
+        return news.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,17 +128,18 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         
-        // Мок-данные в карточках новостей
-        if indexPath.row % 2 == 0 {
-            cell.configure(with: "The latest situation in the presidential election",
-                           image: UIImage(named: "samplePolitics"), tag: "POLITICS")
-        } else {
-            cell.configure(with: "An updated daily front page",
-                           image: UIImage(named: "sampleArt"), tag: "ART")
-        }
+        cell.configure(with: news[indexPath.item])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = ArticleViewController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
+    }
 }
+
+
 
 // MARK: - TabsViewDelegate (обработка смены таба)
 
