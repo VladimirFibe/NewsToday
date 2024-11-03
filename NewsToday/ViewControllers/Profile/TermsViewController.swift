@@ -10,7 +10,7 @@ import UIKit
 class TermsViewController: UIViewController {
 
     
-    let content = """
+    let contentLatin = """
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
@@ -19,22 +19,15 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
 
+"""
+    let contentRus = """
+    Важно заботиться о пациенте, чтобы клиент сопровождал его, но в то же время он будет испытывать сильную боль и страдания. Если говорить до мельчайших подробностей, то никто не должен заниматься никакой работой, если не получит от нее какой-либо пользы. Не сердись на боль, на выговор, на удовольствие он хочет быть волоском от боли в надежде, что не будет размножения. Если они не ослеплены похотью, они не выступают вперед; виноваты те, кто оставляет свои обязанности и смягчает свои сердца, то есть свои труды;
+        
+    Но для того, чтобы вы могли видеть, откуда все это порожденное заблуждение тех, кто обвиняет удовольствие и восхваляет страдание, я раскрою все дело и объясню именно то, что было сказано этим открывателем истины и как бы архитектором счастливая жизнь.
 
+    Ибо никто не презирает, не ненавидит и не бежит от удовольствия не потому, что оно есть удовольствие, а потому, что великие страдания причиняются тем, кто не умеет разумно следовать за удовольствием.
 
-
-
-
-
-
-
-
-+++++
-ghdjhjgkh
-hvjhkh
-jbjkhklj
-
-
-hjvjjkj
+    И нет, кроме того, такого человека, который, потому что любит боль, преследует ее, хочет ее получить, но потому, что никогда не бывает таких времен, когда он ищет какого-нибудь великого удовольствия через труд и боль.
 """
     private lazy var backgroundViewColor: UIView = {
         let element = UIView()
@@ -59,7 +52,7 @@ hjvjjkj
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.text = "Terms & Conditions"
+        element.text = Texts.TermsViewController.title
         element.tintColor = UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1)
         element.textAlignment = .center
         element.font = UIFont(name: "Inter-SemiBold", size: 24)
@@ -82,7 +75,9 @@ hjvjjkj
     }()
     private lazy var contentLabel: UILabel = {
         let element = UILabel()
-        element.text = content
+        UserDefaults.standard.bool(forKey: "selectedLanguage")
+        
+        element.text = UserDefaults.standard.bool(forKey: "selectedLanguage") == true ? contentLatin : contentRus
         element.numberOfLines = 0
         element.textColor = UIColor(red: 124/255, green: 130/255, blue: 161/255, alpha: 1)
         element.textAlignment = .left
@@ -101,7 +96,7 @@ hjvjjkj
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          navigationController?.navigationBar.isHidden = false
-         navigationItem.title = "Terms & Conditions"
+         navigationItem.title = Texts.TermsViewController.title
         
         navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 51/255, green: 54/255, blue: 71/255, alpha: 1), NSAttributedString.Key.font: UIFont.init(name: "Inter-SemiBold", size: 24)]
         
@@ -110,7 +105,6 @@ hjvjjkj
     
     private func setupViews() {
         view.addSubview(backgroundViewColor)
-//        view.addSubview(titleLabel)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(contentLabel)
