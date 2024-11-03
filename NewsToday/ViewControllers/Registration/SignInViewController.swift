@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var action: Callback?
@@ -126,11 +128,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     @objc
     private func signInButtonTapped() {
-        action?()
+        guard let email = userTextField.text, let password = passwordTextField.text else  { return }
+        Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
+            guard error == nil else { return }
+            self?.action?()
+        }
     }
     @objc private func handleTap() {
         
         let signUpViewController = SignUpViewController()
+        signUpViewController.action = action
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
     

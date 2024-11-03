@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  NewsToday
+
+  Created by Vladimir Fibe on 03.11.2024.
+  
+*/
+"profileViewController title" = "Личный кабинет";
+"profileViewController sing out button" = "Выйти";
+"profileViewController terms Conditions button" = "Правила и условия";
+"profileViewController language button" = "Выбор языка";
+"termsViewController title" = "Правила и условия";
+"languageViewController title" = "Выбор языка";
+"languageViewController english button" = "Английский";
+"languageViewController russian button" = "Русский";

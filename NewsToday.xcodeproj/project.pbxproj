@@ -12,6 +12,15 @@
 		044B41182CD36B4400E13355 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41172CD36B4400E13355 /* FavoriteViewController.swift */; };
 		044B411A2CD36B9700E13355 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B41192CD36B9700E13355 /* FavoriteViewCell.swift */; };
 		044B411C2CD3D61B00E13355 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B411B2CD3D61B00E13355 /* Favorites.swift */; };
+		452F886C2CD73A90005007EE /* namesForLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F886B2CD73A90005007EE /* namesForLocalizable.swift */; };
+		452F887A2CD73C8B005007EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452F88782CD73C8B005007EE /* Localizable.strings */; };
+		452F887D2CD756B8005007EE /* BrowseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F887C2CD756B8005007EE /* BrowseStore.swift */; };
+		4559C8B32CD659FF00571925 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4559C8B22CD659FF00571925 /* FirebaseAuth */; };
+		4559C8B52CD659FF00571925 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4559C8B42CD659FF00571925 /* FirebaseFirestore */; };
+		4559C8B72CD659FF00571925 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4559C8B62CD659FF00571925 /* FirebaseStorage */; };
+		4559C8B92CD65A7A00571925 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4559C8B82CD65A7A00571925 /* GoogleService-Info.plist */; };
+		4559C8E72CD6618F00571925 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559C8E62CD6618F00571925 /* Person.swift */; };
+		458BEE0A2CD7611E009339DE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 458BEE092CD7611E009339DE /* Kingfisher */; };
 		458D22FD2CCC8A950088AA02 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */; };
 		458D23042CCC8B290088AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23032CCC8B290088AA02 /* UIView+Extensions.swift */; };
 		458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */; };
@@ -55,6 +64,14 @@
 		044B41172CD36B4400E13355 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		044B41192CD36B9700E13355 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		044B411B2CD3D61B00E13355 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		452F886B2CD73A90005007EE /* namesForLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namesForLocalizable.swift; sourceTree = "<group>"; };
+		452F88742CD73C0A005007EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		452F88752CD73C16005007EE /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		452F88792CD73C8B005007EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		452F887B2CD73CAD005007EE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		452F887C2CD756B8005007EE /* BrowseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseStore.swift; sourceTree = "<group>"; };
+		4559C8B82CD65A7A00571925 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4559C8E62CD6618F00571925 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		458D23032CCC8B290088AA02 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -85,7 +102,6 @@
 		8F5A8E102CCC0A9E00E98CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F5A8E122CCC0A9E00E98CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8F5A8E192CCC0AA200E98CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8F5A8E1C2CCC0AA200E98CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F5A8E1E2CCC0AA200E98CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE904C312CCD208000B79B11 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		DE904C612CCEA56D00B79B11 /* UILabel + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extention.swift"; sourceTree = "<group>"; };
@@ -99,6 +115,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				458BEE0A2CD7611E009339DE /* Kingfisher in Frameworks */,
+				4559C8B32CD659FF00571925 /* FirebaseAuth in Frameworks */,
+				4559C8B52CD659FF00571925 /* FirebaseFirestore in Frameworks */,
+				4559C8B72CD659FF00571925 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +191,7 @@
 				458D23172CCC8C400088AA02 /* News.json */,
 				458D23192CCC8C400088AA02 /* Store.swift */,
 				8F5A8E1B2CCC0AA200E98CB7 /* LaunchScreen.storyboard */,
+				452F88782CD73C8B005007EE /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,6 +216,7 @@
 		458D23332CCC9E420088AA02 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				452F886B2CD73A90005007EE /* namesForLocalizable.swift */,
 				8F43D8D02CCD3D710093E8DB /* LanguageViewController.swift */,
 				8F43D8CF2CCD3D710093E8DB /* ProfileViewController.swift */,
 				8F43D8CE2CCD3D710093E8DB /* TermsViewController.swift */,
@@ -227,6 +249,7 @@
 				458D230A2CCC8C0C0088AA02 /* NewsCell.swift */,
 				044B41102CCE7EFA00E13355 /* CustomSearchView.swift */,
 				044B41122CCFF7EA00E13355 /* TabsView.swift */,
+				452F887C2CD756B8005007EE /* BrowseStore.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -236,6 +259,7 @@
 			children = (
 				458D23182CCC8C400088AA02 /* News.swift */,
 				044B411B2CD3D61B00E13355 /* Favorites.swift */,
+				4559C8E62CD6618F00571925 /* Person.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,13 +293,14 @@
 		8F5A8E0F2CCC0A9E00E98CB7 /* NewsToday */ = {
 			isa = PBXGroup;
 			children = (
-				458D233E2CCCB5D90088AA02 /* API */,
 				458D23252CCC95530088AA02 /* App */,
+				458D233E2CCCB5D90088AA02 /* API */,
 				458D23372CCC9E990088AA02 /* Models */,
 				458D23022CCC8B050088AA02 /* Extensions */,
 				458D23272CCC967B0088AA02 /* ViewControllers */,
 				458D23282CCC96A10088AA02 /* Supporting Files */,
 				8F5A8E1E2CCC0AA200E98CB7 /* Info.plist */,
+				4559C8B82CD65A7A00571925 /* GoogleService-Info.plist */,
 			);
 			path = NewsToday;
 			sourceTree = "<group>";
@@ -338,9 +363,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 8F5A8E042CCC0A9E00E98CB7;
+			packageReferences = (
+				4559C8B12CD659FE00571925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				458BEE082CD7611E009339DE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 8F5A8E0E2CCC0A9E00E98CB7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,8 +385,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458D23212CCC8C4B0088AA02 /* Inter-Medium.ttf in Resources */,
+				4559C8B92CD65A7A00571925 /* GoogleService-Info.plist in Resources */,
 				458D23222CCC8C4B0088AA02 /* Inter-SemiBold.ttf in Resources */,
 				458D23232CCC8C4B0088AA02 /* Inter-Bold.ttf in Resources */,
+				452F887A2CD73C8B005007EE /* Localizable.strings in Resources */,
 				458D23242CCC8C4B0088AA02 /* Inter-Regular.ttf in Resources */,
 				8F5A8E1D2CCC0AA200E98CB7 /* LaunchScreen.storyboard in Resources */,
 				458D231C2CCC8C400088AA02 /* News.json in Resources */,
@@ -386,10 +417,13 @@
 				8F43D8D32CCD3D710093E8DB /* LanguageViewController.swift in Sources */,
 				458D230C2CCC8C0C0088AA02 /* NewsCell.swift in Sources */,
 				8F5A8E112CCC0A9E00E98CB7 /* AppDelegate.swift in Sources */,
+				4559C8E72CD6618F00571925 /* Person.swift in Sources */,
 				458D23312CCC99AE0088AA02 /* Bundle+Extension.swift in Sources */,
 				458D232A2CCC96D20088AA02 /* AuthViewController.swift in Sources */,
 				044B41112CCE7EFA00E13355 /* CustomSearchView.swift in Sources */,
 				044B41182CD36B4400E13355 /* FavoriteViewController.swift in Sources */,
+				452F887D2CD756B8005007EE /* BrowseStore.swift in Sources */,
+				452F886C2CD73A90005007EE /* namesForLocalizable.swift in Sources */,
 				458D23062CCC8BEC0088AA02 /* CustomTabBar.swift in Sources */,
 				458D233B2CCCB5D10088AA02 /* APIError.swift in Sources */,
 				8F43D8D12CCD3D710093E8DB /* TermsViewController.swift in Sources */,
@@ -411,10 +445,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		452F88782CD73C8B005007EE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				452F88792CD73C8B005007EE /* en */,
+				452F887B2CD73CAD005007EE /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8F5A8E1B2CCC0AA200E98CB7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8F5A8E1C2CCC0AA200E98CB7 /* Base */,
+				452F88742CD73C0A005007EE /* en */,
+				452F88752CD73C16005007EE /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -426,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -487,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -545,6 +591,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 723HTEFHBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsToday/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -558,7 +605,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.myAppBuildAlGur.NewsToday;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.fibeapp.NewsToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -576,6 +623,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 723HTEFHBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsToday/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -589,7 +637,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.myAppBuildAlGur.NewsToday;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.fibeapp.NewsToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -622,6 +670,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4559C8B12CD659FE00571925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+		458BEE082CD7611E009339DE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4559C8B22CD659FF00571925 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4559C8B12CD659FE00571925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		4559C8B42CD659FF00571925 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4559C8B12CD659FE00571925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		4559C8B62CD659FF00571925 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4559C8B12CD659FE00571925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		458BEE092CD7611E009339DE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 458BEE082CD7611E009339DE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F5A8E052CCC0A9E00E98CB7 /* Project object */;
 }
