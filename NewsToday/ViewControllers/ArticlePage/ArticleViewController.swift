@@ -128,7 +128,7 @@ class ArticleViewController: UIViewController {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -211,7 +211,7 @@ class ArticleViewController: UIViewController {
     
     @objc private func returnButtonTapped() {
         
-        print("кнопка назад нажата")
+        dismiss(animated: true)
         
     }
 }

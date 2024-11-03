@@ -131,7 +131,15 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.configure(with: news[indexPath.item])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = ArticleViewController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
+    }
 }
+
+
 
 // MARK: - TabsViewDelegate (обработка смены таба)
 
