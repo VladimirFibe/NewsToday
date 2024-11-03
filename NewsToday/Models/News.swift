@@ -8,15 +8,15 @@
 import Foundation
 
 struct News: Decodable {
-  let sourse: Sourse
-  let author: String?
-  let title: String?
-  let description: String?
-  let urlToImage: String?
-  let url: String?
+  var sourse: Sourse?
+  var author: String?
+  var title: String?
+  var description: String?
+  var urlToImage: String?
+  var url: String?
 }
 
-struct NewsEnvelope: Decodable {
+struct NewsResponse: Decodable {
   let status: String
   let totalResults: Int
   let articles: [News]

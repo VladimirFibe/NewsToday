@@ -10,6 +10,7 @@ import UIKit
 class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     private let searchBar = CustomSearchView()
+    private let store = BrowseStore()
     
     private lazy var tabsView: TabsView = {
         let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming",
@@ -43,6 +44,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         setupSearchView()
         setupTabsView()
         setupCollectionView()
+        store.sendAction(.fetch)
     }
     
     private func setupHeaderView() {
