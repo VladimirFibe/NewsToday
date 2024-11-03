@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     //    MARK: - UI Elements
-
+    var action: Callback?
     private lazy var backgroundViewColor: UIView = {
         let element = UIView()
         element.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
@@ -200,8 +200,8 @@ class ProfileViewController: UIViewController {
     // MARK: - Button Action
     
     @objc private func signoutButtonTapped() {
-        let nextViewController = BrowseViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
+        print(#function)
+        action?()
     }
     
     @objc private func termsConditionsButtonTapped() {
