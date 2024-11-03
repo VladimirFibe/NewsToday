@@ -47,8 +47,8 @@ extension UIButton {
                 button.layer.borderWidth = borderWidth
 
                 return button
-            }
         }
+}
 
 let LocalizeUserDefaultKey = "LocalizeUserDefaultKey"
 var LocalizeDefaultLanguage = "en"
