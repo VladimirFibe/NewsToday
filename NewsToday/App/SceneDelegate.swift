@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,15 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        start()
+        runOnboarding()
     }
     
     private func start() {
-        setRootViewController(makeTabbar())
+        if Auth.auth().currentUser == nil {
+            setRootViewController(makeAuth())
+        } else {
+            setRootViewController(makeTabbar())
+        }
     }
     
     private func runOnboarding() {
-        setRootViewController(makeOnboarding())
+        if NewsDefaults.isOnboarding {
+            start()
+        } else {
+            setRootViewController(makeOnboarding())
+        }
     }
     
     private func runTabbar() {
@@ -34,20 +43,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeAuth() -> UIViewController {
-        let controller = AuthViewController()
-        controller.action = { [weak self] in self?.runOnboarding() }
+        let controller = SignInViewController()
+        controller.action = { [weak self] in self?.start() }
         return UINavigationController(rootViewController: controller)
     }
     
     private func makeOnboarding() -> UIViewController {
-        let controller = OnboardingPageController()
-        controller.action = { [weak self] in self?.runTabbar()}
+        let controller = OnboardingPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        controller.action = { [weak self] in
+            NewsDefaults.isOnboarding = true
+            self?.start()
+        }
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func makeFavoriteViewController() -> UIViewController {
+        let controller = FavoriteViewController()
         return UINavigationController(rootViewController: controller)
     }
     
     private func makeTabbar() -> UIViewController {
-        let controller = CustomTabBarController()
-        return controller
+        CustomTabBarController(action: { [weak self] in
+            print("Make Tabbar")
+            try? Auth.auth().signOut()
+            self?.start()
+        })
     }
     
     func setRootViewController(_ controller: UIViewController, animated: Bool = true) {
