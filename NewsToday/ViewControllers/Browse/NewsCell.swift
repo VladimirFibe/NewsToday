@@ -10,6 +10,7 @@ import Kingfisher
 
 class NewsCell: UICollectionViewCell {
     var news: News?
+    
     static let identifier = "NewsCell"
     
     private let imageView: UIImageView = {
@@ -121,6 +122,7 @@ class NewsCell: UICollectionViewCell {
         if let url = news.urlToImage {
             imageView.kf.setImage(with: URL(string: url))
         }
-        tagLabel.text = "POLITICS"
+        tagLabel.text = news.category?.title ?? NewsCategory.general.title
+        print("Category: \(news.category?.rawValue ?? "none")")
     }
 }

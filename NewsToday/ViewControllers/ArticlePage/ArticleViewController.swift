@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ArticleViewController: UIViewController {
     
     
@@ -92,7 +93,10 @@ class ArticleViewController: UIViewController {
         view.backgroundColor = .white
         setupView()
         setupConstraints()
-        configureView(with: news ?? News())
+        
+        if let news = news {
+                configureView(with: news)
+            }
     }
     
     func setupView() {
@@ -219,7 +223,11 @@ class ArticleViewController: UIViewController {
         authorLabel.text = "Author"
         articleLabel.text = "Results"
         articleTextView.text = article.description
-        categoryLabel.text = "Politics"
+        if let category = news?.category {
+            categoryLabel.text = category.title
+        } else {
+            categoryLabel.text = "general" 
+        }
     }
 }
 

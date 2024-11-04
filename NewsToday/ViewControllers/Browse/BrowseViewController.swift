@@ -14,11 +14,12 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     private var bag = Bag()
     private var news: [News] = []
     
+    private let categories: [NewsCategory] = NewsCategory.allCases
+    
     private lazy var tabsView: TabsView = {
-        let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming",
-                                               "Politics", "Art", "Health"])
-        tabsView.delegate = self
-        return tabsView
+        let tabsView = TabsView(buttonTitles: categories.map { $0.title })
+            tabsView.delegate = self
+            return tabsView
     }()
     
     private lazy var collectionView: UICollectionView = {
@@ -46,7 +47,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         setupSearchView()
         setupTabsView()
         setupCollectionView()
-        store.sendAction(.fetchByCategory("sports"))
+        store.sendAction(.fetchByCategory("general"))
         setupObservers()
     }
     
@@ -58,6 +59,10 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
                 guard let self = self else { return }
                 switch event {
                 case let .didLoadSections(news):
+                    self.reloadNews(news)
+                case let .didLoadCategory(news):
+                    self.reloadNews(news)
+                case let .didLoadKeywords(news):
                     self.reloadNews(news)
                 }
             }.store(in: &bag)
@@ -76,6 +81,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     }
     
     private func setupSearchView() {
+        searchBar.configure(with: self)
         searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.layer.borderWidth = 0
@@ -147,6 +153,20 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
 
 extension BrowseViewController: TabsViewDelegate {
     func tabsView(_ tabBarView: TabsView, didSelectTabAt index: Int) {
-        print("Selected tab index: \(index)")
+        guard index < categories.count else { return }
+        let selectedCategory = categories[index].rawValue
+        store.sendAction(.fetchByCategory(selectedCategory))
+        print("Selected tab index: \(index), category: \(selectedCategory)")
     }
+}
+
+
+extension BrowseViewController {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let keyword = textField.text else { return false }
+        print(textField.text ?? "")
+        store.sendAction(.fetchNewsByKeyword(keyword))
+        return true
+    }
+    
 }

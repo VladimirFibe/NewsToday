@@ -10,11 +10,14 @@ import Foundation
 
 enum BrowseEvent {
     case didLoadSections([News])
+    case didLoadCategory([News])
+    case didLoadKeywords([News])
 }
 
 enum BrowseAction {
     case fetch
     case fetchByCategory(String)
+    case fetchNewsByKeyword(String)
 }
 
 final class BrowseStore: Store<BrowseEvent, BrowseAction> {
@@ -27,6 +30,10 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
             statefulCall {
                 try await self.fetchBy(category: category)
             }
+        case .fetchNewsByKeyword(let keyword):
+            statefulCall {
+                try await self.fetchBy(keyword: keyword)
+            }
         }
     }
     
@@ -37,6 +44,11 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     
     private func fetchBy(category: String) async throws {
         let response: NewsResponse = try await APIClient.shared.request(.getNewsByCategory(category))
-        sendEvent(.didLoadSections(response.articles))
+        sendEvent(.didLoadCategory(response.articles))
+    }
+    
+    private func fetchBy(keyword: String) async throws {
+        let response: NewsResponse = try await APIClient.shared.request(.getNewsByKeyword(keyword))
+        sendEvent(.didLoadKeywords(response.articles))
     }
 }
