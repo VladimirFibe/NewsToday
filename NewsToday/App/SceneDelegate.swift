@@ -77,7 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        window.rootViewController = controller
+        window.rootViewController = BrowseViewController()
         window.makeKeyAndVisible()
         UIView.transition(with: window,
                           duration: 0.3,

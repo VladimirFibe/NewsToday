@@ -13,6 +13,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     private let store = BrowseStore()
     private var bag = Bag()
     private var news: [News] = []
+    private var filteredNews: [News] = []
     
     private lazy var tabsView: TabsView = {
         let tabsView = TabsView(buttonTitles: ["Random", "Sports", "Gaming",
@@ -41,13 +42,20 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
-        
+        filteredNews = news
+       
         setupHeaderView()
         setupSearchView()
         setupTabsView()
         setupCollectionView()
         store.sendAction(.fetch)
         setupObservers()
+        setupFilerNews()
+       
+        
+  
+        
+        
     }
     
     private func setupObservers() {
@@ -89,8 +97,31 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchBar.heightAnchor.constraint(equalToConstant: 56)
         ])
+        
+
     }
-    
+    private func setupFilerNews() {
+        searchBar.onTextChange = { [weak self] searchText in
+            self?.filterNews(with: searchText ?? "")
+        }
+        
+    }
+
+    private func filterNews(with searchText: String) {
+        let trimmedText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if trimmedText.isEmpty {
+            filteredNews = news 
+        } else {
+            filteredNews = news.filter { news in
+                return news.title!.lowercased().contains(trimmedText.lowercased())
+            }
+        }
+
+        collectionView.reloadData()
+    }
+
+
     private func setupTabsView() {
         tabsView.translatesAutoresizingMaskIntoConstraints = false
         

@@ -13,6 +13,8 @@ class CustomSearchView: UIView {
     let titleLabel = UILabel()
     let searchIcon = UIImageView()
     
+    var onTextChange: ((String?) -> Void)?
+
     var text: String? {
         get { mainTextField.text }
         set { mainTextField.text = newValue }
@@ -33,12 +35,14 @@ class CustomSearchView: UIView {
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        titleLabel.isHidden = !textField.text!.isEmpty
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+           // Вызываем замыкание для передачи текста поиска
+           onTextChange?(textField.text)
+       }
+
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
+
     
     private func configureView() {
         backgroundColor = UIColor(named: "GrayLight")
