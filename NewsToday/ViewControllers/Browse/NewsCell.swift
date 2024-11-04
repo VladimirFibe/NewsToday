@@ -12,7 +12,6 @@ class NewsCell: UICollectionViewCell {
     var news: News?
     static let identifier = "NewsCell"
     
-    //
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

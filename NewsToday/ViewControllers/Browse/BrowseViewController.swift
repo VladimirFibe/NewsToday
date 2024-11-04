@@ -133,7 +133,9 @@ extension BrowseViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedNews = news[indexPath.item]
         let controller = ArticleViewController()
+        controller.news = selectedNews
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)
     }

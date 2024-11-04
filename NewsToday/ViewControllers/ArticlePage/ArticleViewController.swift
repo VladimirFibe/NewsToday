@@ -10,10 +10,11 @@ import UIKit
 class ArticleViewController: UIViewController {
     
     
-    
     //MARK: - Private properties
     
     //var data = [Article]() // здесь будут данные из интернета
+    
+    var news: News?
     var tag: String = "Politic"
     var isArticleSaved = true
     
@@ -59,15 +60,20 @@ class ArticleViewController: UIViewController {
         return element
     }()
     
-    private let titleLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Bold", size: 20), textColor: .white, numberOfLines: 0)
+    private let titleLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Bold", size: 20),
+                                               textColor: .white, numberOfLines: 0)
     
-    private let nameLabel = UILabel.makeLabel(font: UIFont(name: "Inter-SemiBold", size: 16), textColor: .white, numberOfLines: 0)
+    private let nameLabel = UILabel.makeLabel(font: UIFont(name: "Inter-SemiBold", size: 16),
+                                              textColor: .white, numberOfLines: 0)
     
-    private let authorLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Regular", size: 14), textColor: .white, numberOfLines: 0)
+    private let authorLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Regular", size: 14),
+                                                textColor: .white, numberOfLines: 0)
     
-    private let articleLabel = UILabel.makeLabel(font: UIFont(name: "Inter-SemiBold", size: 16), textColor: #colorLiteral(red: 0.200000003, green: 0.2099999934, blue: 0.2800000012, alpha: 1), numberOfLines: 0)
+    private let articleLabel = UILabel.makeLabel(font: UIFont(name: "Inter-SemiBold", size: 16),
+                                                 textColor: #colorLiteral(red: 0.200000003, green: 0.2099999934, blue: 0.2800000012, alpha: 1), numberOfLines: 0)
     
-    private let categoryLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Bold", size: 16), textColor: .white, numberOfLines: 0)
+    private let categoryLabel = UILabel.makeLabel(font: UIFont(name: "Inter-Bold", size: 16),
+                                                  textColor: .white, numberOfLines: 0)
     
     private let articleTextView: UITextView = {
         let element = UITextView()
@@ -86,29 +92,17 @@ class ArticleViewController: UIViewController {
         view.backgroundColor = .white
         setupView()
         setupConstraints()
-        
-        
+        configureView(with: news ?? News())
     }
+    
     func setupView() {
         
-        [articleImageView,  blackView, titleLabel, titleLabel, nameLabel, authorLabel, articleLabel,  articleTextView, bookmarkButton, shareButton, returnButton, labelView].forEach {contentView.addSubview($0) }
+        [articleImageView,  blackView, returnButton, titleLabel, titleLabel, nameLabel, authorLabel, articleLabel,  articleTextView, bookmarkButton, shareButton, labelView].forEach {contentView.addSubview($0) }
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         labelView.addSubview(categoryLabel)
         
-        
-        // моковые данные
-        
-        articleImageView.image = UIImage(named: "samplePolitics")
-        titleLabel.text = "The latest situation in the presidential election"
-        nameLabel.text = "John Doe"
-        authorLabel.text = "Author"
-        articleLabel.text = "Results"
-        articleTextView.text = "Leads in individual states may change from one party to another as all the votes are counted. Select a state for detailed results, and select the Senate, House or Governor tabs to view those races. For more detailed state results click on the States A-Z links at the bottom of this page.Results source: NEP/Edison via Reuters.Leads in individual states may change from one party to another as all the votes are counted. Select a state for detailed results, and select the Senate, House or Governor tabs to view those races."
-        categoryLabel.text = "Politics"
-        
         bookmarkButton.setImage(UIImage(named: "bookmark-icon"),for: .normal)
-
         bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         bookmarkButton.tintColor = .white
         bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
@@ -122,7 +116,6 @@ class ArticleViewController: UIViewController {
         returnButton.addTarget(self, action: #selector(returnButtonTapped), for: .touchUpInside)
         returnButton.translatesAutoresizingMaskIntoConstraints = false
         returnButton.tintColor = .white
-        
     }
     
     func setupConstraints() {
@@ -203,6 +196,7 @@ class ArticleViewController: UIViewController {
             print("Закладка удалена")
         }
     }
+    
     @objc private func shareButtonTapped() {
         
         print("кнопка поделиться нажата")
@@ -214,4 +208,27 @@ class ArticleViewController: UIViewController {
         dismiss(animated: true)
         
     }
+    
+    func configureView(with article: News) {
+        self.news = article
+        if let url = news?.urlToImage {
+            articleImageView.kf.setImage(with: URL(string: url))
+        }
+        titleLabel.text = article.title
+        nameLabel.text = article.author ?? "Unknown Author"
+        authorLabel.text = "Author"
+        articleLabel.text = "Results"
+        articleTextView.text = article.description
+        categoryLabel.text = "Politics"
+    }
 }
+
+// моковые данные
+//
+//articleImageView.image = UIImage(named: "samplePolitics")
+//titleLabel.text = "The latest situation in the presidential election"
+//nameLabel.text = "John Doe"
+//authorLabel.text = "Author"
+//articleLabel.text = "Results"
+//articleTextView.text = "Leads in individual states may change from one party to another as all the votes are counted. Select a state for detailed results, and select the Senate, House or Governor tabs to view those races. For more detailed state results click on the States A-Z links at the bottom of this page.Results source: NEP/Edison via Reuters.Leads in individual states may change from one party to another as all the votes are counted. Select a state for detailed results, and select the Senate, House or Governor tabs to view those races."
+//categoryLabel.text = "Politics"
