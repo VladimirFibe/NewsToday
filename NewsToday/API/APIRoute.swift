@@ -10,12 +10,21 @@ import Foundation
 enum APIRoute {
     case getNews
     
+    case getNewsByCategory(String)
+    
     var baseUrl: String {
         "https://newsapi.org/v2/"
     }
     
     var fullUrl: String {
-        "\(baseUrl)top-headlines?country=us&apiKey=\(apiKey)"
+
+        switch self {
+            
+        case .getNews:
+            return "\(baseUrl)top-headlines?country=us&apiKey=\(apiKey)"
+        case .getNewsByCategory(let category):
+            return "\(baseUrl)top-headlines?country=us&category=\(category)&apiKey=\(apiKey)"
+        }
     }
     
     var apiKey: String {

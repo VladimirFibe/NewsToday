@@ -14,6 +14,7 @@ enum BrowseEvent {
 
 enum BrowseAction {
     case fetch
+    case fetchByCategory(String)
 }
 
 final class BrowseStore: Store<BrowseEvent, BrowseAction> {
@@ -22,11 +23,20 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
         switch action {
         case .fetch:
             statefulCall(fetch)
+        case .fetchByCategory(let category):
+            statefulCall {
+                try await self.fetchBy(category: category)
+            }
         }
     }
     
     private func fetch() async throws {
         let response: NewsResponse = try await APIClient.shared.request(.getNews)
+        sendEvent(.didLoadSections(response.articles))
+    }
+    
+    private func fetchBy(category: String) async throws {
+        let response: NewsResponse = try await APIClient.shared.request(.getNewsByCategory(category))
         sendEvent(.didLoadSections(response.articles))
     }
 }

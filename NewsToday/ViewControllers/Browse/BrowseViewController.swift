@@ -46,7 +46,7 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         setupSearchView()
         setupTabsView()
         setupCollectionView()
-        store.sendAction(.fetch)
+        store.sendAction(.fetchByCategory("sports"))
         setupObservers()
     }
     
