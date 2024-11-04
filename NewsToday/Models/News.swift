@@ -14,6 +14,7 @@ struct News: Decodable {
   var description: String?
   var urlToImage: String?
   var url: String?
+  var category: NewsCategory?
 }
 
 struct NewsResponse: Decodable {
@@ -25,4 +26,18 @@ struct NewsResponse: Decodable {
 struct Sourse: Codable {
     let id: String?
     let name: String?
+}
+
+enum NewsCategory: String, Codable, CaseIterable {
+    case business
+    case entertainment
+    case general
+    case health
+    case science
+    case sports
+    case technology
+    
+    var title: String {
+            return self.rawValue.capitalized
+    }
 }
