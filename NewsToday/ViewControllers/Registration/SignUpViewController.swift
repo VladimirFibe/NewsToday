@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     var action: Callback?
+    var bookmarks: Set<String> = []
     private let stackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical

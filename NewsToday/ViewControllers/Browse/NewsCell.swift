@@ -9,9 +9,9 @@ import UIKit
 import Kingfisher
 
 class NewsCell: UICollectionViewCell {
-    var news: News?
+    private var news: News?
     static let identifier = "NewsCell"
-    
+    public var didTapBookmarkButton: (() -> Bool)?
     //
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -61,7 +61,6 @@ class NewsCell: UICollectionViewCell {
     
     @objc private func handleBookmark() {
         guard let news else { return }
-        print(news.title)
     }
     
     override init(frame: CGRect) {
