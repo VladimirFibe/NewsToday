@@ -83,4 +83,8 @@ class CustomSearchView: UIView {
             mainTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+    
+    func configure(with delegate: UITextFieldDelegate) {
+        mainTextField.delegate = delegate
+    }
 }

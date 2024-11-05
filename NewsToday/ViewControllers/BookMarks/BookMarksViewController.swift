@@ -15,22 +15,25 @@ let mockArticles: [News] =  [
          author: "Steve Holland, Andrea Shalal, Trevor Hunnicutt",
          title: "Harris, Trump court early voters; Usher, Lizzo join campaign trail - Reuters",
          description: nil,
-        urlToImage: "1",
-         url: nil),
+         urlToImage: "1",
+         url: nil,
+         category: .general),
     News(sourse: Sourse(id: "cnn",
                         name: "CNN"),
          author: "Edward Szekeres, Simone McCarthy, Sophie Tanno, Rosa Rahimi, Tori B. Powell",
          title: "The latest on Hamas leader’s death and war in the Middle East - CNN",
          description: nil,
          urlToImage: "2",
-         url:nil),
+         url:nil,
+         category: .general),
     News(sourse: Sourse(id: nil,
                         name: "Yahoo Entertainment"),
          author: "Liz Kocan",
          title: "Ngannou vs. Ferreira: How to watch the PFL Battle of the Giants tonight, full fight card and more - Yahoo Sports",
          description: nil,
          urlToImage: "3",
-         url:nil),
+         url:nil,
+         category: .general),
       ]
 
 
@@ -62,7 +65,7 @@ class BookMarksViewController: UIViewController {
     
     // MARK: - Property
     
-    private var news: [News] = mockArticles
+    private var news: [News] = []
     
     private let headerHeightWithNoData: CGFloat = 350
     private let headerHeightWithData: CGFloat = 0
@@ -76,6 +79,7 @@ class BookMarksViewController: UIViewController {
         view.backgroundColor = .white
 
         setupView()
+        loadBookmarkedNews()
 
     }
     
@@ -116,6 +120,19 @@ class BookMarksViewController: UIViewController {
         bookMarksTableView.tableHeaderView = createHeaderView()
     }
 
+    private func fetchNewsByID(_ url: String) -> News? {
+        return BrowseStore.shared.fetchNewsByID(url)
+    }
+    
+    private func loadBookmarkedNews() {
+            news = BrowseStore.shared.bookmarkedNews.compactMap { url in
+                return BrowseStore.shared.fetchNewsByID(url)
+            }
+            print("Loaded news: \(news)")
+        
+            bookMarksTableView.reloadData()
+        }
+    
     // MARK: - createHeaderView
     
     private func createHeaderView() -> UIView {
@@ -175,7 +192,6 @@ class BookMarksViewController: UIViewController {
         
         return headerView
     }
-
 }
 // MARK: - UiTableViewDataSource
 

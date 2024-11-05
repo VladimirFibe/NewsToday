@@ -70,7 +70,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         
         let attributedString = NSMutableAttributedString(string: "Don't have account? ")
-        let boldText = NSAttributedString(string: "Sign In", attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black])
+        let boldText = NSAttributedString(string: "Sign Up", attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black])
         attributedString.append(boldText)
         
         bottomLabel.attributedText = attributedString
