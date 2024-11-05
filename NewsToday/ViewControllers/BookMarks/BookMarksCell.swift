@@ -37,10 +37,7 @@ class BookMarksCell: UITableViewCell {
         addSubview(imageIV)
         addSubview(nameLabel)
         addSubview(titleLabel)
-        
-        
-        
-        
+    
         imageIV.contentMode = .scaleAspectFill
 
         nameLabel.font = UIFont(name: "Inter-Regular", size: 14)

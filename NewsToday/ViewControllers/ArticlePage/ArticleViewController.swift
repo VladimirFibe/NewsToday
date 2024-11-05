@@ -95,13 +95,13 @@ class ArticleViewController: UIViewController {
         setupConstraints()
         
         if let news = news {
-                configureView(with: news)
-            }
+            configureView(with: news)
+        }
     }
     
     func setupView() {
         
-        [articleImageView,  blackView, returnButton, titleLabel, titleLabel, nameLabel, authorLabel, articleLabel,  articleTextView, bookmarkButton, shareButton, labelView].forEach {contentView.addSubview($0) }
+        [articleImageView,  blackView, returnButton, titleLabel, nameLabel, authorLabel, articleLabel,  articleTextView, bookmarkButton, shareButton, labelView].forEach {contentView.addSubview($0) }
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         labelView.addSubview(categoryLabel)
@@ -191,12 +191,15 @@ class ArticleViewController: UIViewController {
     }
     
     @objc private func bookmarkButtonTapped() {
+        guard let article = news else { return }
         
-        bookmarkButton.isSelected.toggle()
+        BrowseStore.shared.toggleBookmark(for: news ?? article)
         
-        if bookmarkButton.isSelected {
+        if BrowseStore.shared.isBookmarked(news ?? article) {
+            bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
             print("Закладка добавлена")
         } else {
+            bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)
             print("Закладка удалена")
         }
     }
@@ -204,13 +207,11 @@ class ArticleViewController: UIViewController {
     @objc private func shareButtonTapped() {
         
         print("кнопка поделиться нажата")
-        
     }
     
     @objc private func returnButtonTapped() {
         
         dismiss(animated: true)
-        
     }
     
     func configureView(with article: News) {
@@ -226,7 +227,14 @@ class ArticleViewController: UIViewController {
         if let category = news?.category {
             categoryLabel.text = category.title
         } else {
-            categoryLabel.text = "general" 
+            categoryLabel.text = "general"
+        }
+        
+        // Обновление кнопки закладок
+        if BrowseStore.shared.isBookmarked(article) {
+            bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
+        } else {
+            bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)
         }
     }
 }
