@@ -50,18 +50,24 @@ class NewsCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var bookmarkIcon: UIButton = {
+    private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "bookmark"), for: .normal)
+        button.setImage(UIImage(named: "bookmark-icon"), for: .normal)
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleBookmark), for: .touchUpInside)
+        button.addTarget(self, action: #selector(bookmarkTapped), for: .touchUpInside)
         return button
     }()
     
-    @objc private func handleBookmark() {
-        guard let news else { return }
-        print(news.title)
+    @objc private func bookmarkTapped() {
+        guard let news = news else { return }
+        BrowseStore.shared.toggleBookmark(for: news)
+        
+        let imageName = BrowseStore.shared.isBookmarked(news) ? "bookmark-fill" : "bookmark-icon"
+        bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
+        
+//        print(news.title)
+        
     }
     
     override init(frame: CGRect) {
@@ -78,7 +84,7 @@ class NewsCell: UICollectionViewCell {
         contentView.addSubview(darkOverlay)
         contentView.addSubview(titleLabel)
         contentView.addSubview(tagLabel)
-        contentView.addSubview(bookmarkIcon)
+        contentView.addSubview(bookmarkButton)
         
         NSLayoutConstraint.activate([
             // ImageView
@@ -108,10 +114,10 @@ class NewsCell: UICollectionViewCell {
             
             
             // Bookmark Icon
-            bookmarkIcon.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
-            bookmarkIcon.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8),
-            bookmarkIcon.widthAnchor.constraint(equalToConstant: 24),
-            bookmarkIcon.heightAnchor.constraint(equalToConstant: 24)
+            bookmarkButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
+            bookmarkButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8),
+            bookmarkButton.widthAnchor.constraint(equalToConstant: 24),
+            bookmarkButton.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
@@ -123,6 +129,13 @@ class NewsCell: UICollectionViewCell {
             imageView.kf.setImage(with: URL(string: url))
         }
         tagLabel.text = news.category?.title ?? NewsCategory.general.title
-        print("Category: \(news.category?.rawValue ?? "none")")
+        
+        // новость в закладках?
+        if BrowseStore.shared.isBookmarked(news) {
+            bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
+            print("add")
+        } else {
+            bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)
+        }
     }
 }

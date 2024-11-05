@@ -22,6 +22,8 @@ enum BrowseAction {
 
 final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     
+    static let shared = BrowseStore()
+    
     override func handleActions(action: BrowseAction) {
         switch action {
         case .fetch:
@@ -50,5 +52,29 @@ final class BrowseStore: Store<BrowseEvent, BrowseAction> {
     private func fetchBy(keyword: String) async throws {
         let response: NewsResponse = try await APIClient.shared.request(.getNewsByKeyword(keyword))
         sendEvent(.didLoadKeywords(response.articles))
+    }
+    
+    
+    //MARK: - save & delete bookmarks
+    
+    var bookmarkedNews: Set<String> = []
+    var allNews: [News] = []
+    
+    func isBookmarked(_ news: News) -> Bool {
+        guard let newsID = news.url else { return false }
+        return bookmarkedNews.contains(newsID)
+    }
+    
+    func toggleBookmark(for news: News) {
+        guard let newsID = news.url else { return }
+        if bookmarkedNews.contains(newsID) {
+            bookmarkedNews.remove(newsID)
+        } else {
+            bookmarkedNews.insert(newsID)
+        }
+    }
+    
+    func fetchNewsByID(_ url: String) -> News? {
+        return allNews.first(where: { $0.url == url })
     }
 }

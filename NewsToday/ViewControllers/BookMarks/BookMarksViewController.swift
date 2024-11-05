@@ -65,7 +65,7 @@ class BookMarksViewController: UIViewController {
     
     // MARK: - Property
     
-    private var news: [News] = mockArticles
+    private var news: [News] = []
     
     private let headerHeightWithNoData: CGFloat = 350
     private let headerHeightWithData: CGFloat = 0
@@ -79,6 +79,7 @@ class BookMarksViewController: UIViewController {
         view.backgroundColor = .white
 
         setupView()
+        loadBookmarkedNews()
 
     }
     
@@ -119,6 +120,19 @@ class BookMarksViewController: UIViewController {
         bookMarksTableView.tableHeaderView = createHeaderView()
     }
 
+    private func fetchNewsByID(_ url: String) -> News? {
+        return BrowseStore.shared.fetchNewsByID(url)
+    }
+    
+    private func loadBookmarkedNews() {
+            news = BrowseStore.shared.bookmarkedNews.compactMap { url in
+                return BrowseStore.shared.fetchNewsByID(url)
+            }
+            print("Loaded news: \(news)")
+        
+            bookMarksTableView.reloadData()
+        }
+    
     // MARK: - createHeaderView
     
     private func createHeaderView() -> UIView {
@@ -178,7 +192,6 @@ class BookMarksViewController: UIViewController {
         
         return headerView
     }
-
 }
 // MARK: - UiTableViewDataSource
 
