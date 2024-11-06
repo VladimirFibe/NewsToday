@@ -192,16 +192,8 @@ class ArticleViewController: UIViewController {
     
     @objc private func bookmarkButtonTapped() {
         guard let article = news else { return }
-        
-        BrowseStore.shared.toggleBookmark(for: news ?? article)
-        
-        if BrowseStore.shared.isBookmarked(news ?? article) {
-            bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
-            print("Закладка добавлена")
-        } else {
-            bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)
-            print("Закладка удалена")
-        }
+        let imageName = BookMakrs.shared.toggleStatus(for: article) ? "bookmark-fill" : "bookmark-icon"
+        bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
     }
     
     @objc private func shareButtonTapped() {
@@ -231,7 +223,8 @@ class ArticleViewController: UIViewController {
         }
         
         // Обновление кнопки закладок
-        if BrowseStore.shared.isBookmarked(article) {
+        // новость в закладках?
+        if BookMakrs.shared.isInBookMark(news: article) {
             bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
         } else {
             bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)

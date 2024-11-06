@@ -61,13 +61,9 @@ class NewsCell: UICollectionViewCell {
     
     @objc private func bookmarkTapped() {
         guard let news = news else { return }
-        BrowseStore.shared.toggleBookmark(for: news)
         
-        let imageName = BrowseStore.shared.isBookmarked(news) ? "bookmark-fill" : "bookmark-icon"
+        let imageName = BookMakrs.shared.toggleStatus(for: news) ? "bookmark-fill" : "bookmark-icon"
         bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
-        
-//        print(news.title)
-        
     }
     
     override init(frame: CGRect) {
@@ -131,9 +127,8 @@ class NewsCell: UICollectionViewCell {
         tagLabel.text = news.category?.title ?? NewsCategory.general.title
         
         // новость в закладках?
-        if BrowseStore.shared.isBookmarked(news) {
+        if BookMakrs.shared.isInBookMark(news: news) {
             bookmarkButton.setImage(UIImage(named: "bookmark-fill"), for: .normal)
-            print("add")
         } else {
             bookmarkButton.setImage(UIImage(named: "bookmark-icon"), for: .normal)
         }

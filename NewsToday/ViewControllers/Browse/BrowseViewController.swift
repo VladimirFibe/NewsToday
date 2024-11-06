@@ -120,6 +120,11 @@ class BrowseViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         ])
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate

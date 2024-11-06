@@ -20,6 +20,7 @@
 		4559C8B72CD659FF00571925 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4559C8B62CD659FF00571925 /* FirebaseStorage */; };
 		4559C8B92CD65A7A00571925 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4559C8B82CD65A7A00571925 /* GoogleService-Info.plist */; };
 		4559C8E72CD6618F00571925 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559C8E62CD6618F00571925 /* Person.swift */; };
+		456546632CDADE8C0063A981 /* BookMakrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456546622CDADE8C0063A981 /* BookMakrs.swift */; };
 		458BEE0A2CD7611E009339DE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 458BEE092CD7611E009339DE /* Kingfisher */; };
 		458D22FD2CCC8A950088AA02 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */; };
 		458D23042CCC8B290088AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D23032CCC8B290088AA02 /* UIView+Extensions.swift */; };
@@ -72,6 +73,7 @@
 		452F887C2CD756B8005007EE /* BrowseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseStore.swift; sourceTree = "<group>"; };
 		4559C8B82CD65A7A00571925 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4559C8E62CD6618F00571925 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		456546622CDADE8C0063A981 /* BookMakrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMakrs.swift; sourceTree = "<group>"; };
 		458D22FC2CCC8A950088AA02 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		458D23032CCC8B290088AA02 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		458D23052CCC8BEC0088AA02 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				8F5A8E102CCC0A9E00E98CB7 /* AppDelegate.swift */,
 				8F5A8E122CCC0A9E00E98CB7 /* SceneDelegate.swift */,
 				45F8573B2CD61D9400808D6E /* NewsDefaults.swift */,
+				456546622CDADE8C0063A981 /* BookMakrs.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				4559C8E72CD6618F00571925 /* Person.swift in Sources */,
 				458D23312CCC99AE0088AA02 /* Bundle+Extension.swift in Sources */,
 				458D232A2CCC96D20088AA02 /* AuthViewController.swift in Sources */,
+				456546632CDADE8C0063A981 /* BookMakrs.swift in Sources */,
 				044B41112CCE7EFA00E13355 /* CustomSearchView.swift in Sources */,
 				044B41182CD36B4400E13355 /* FavoriteViewController.swift in Sources */,
 				452F887D2CD756B8005007EE /* BrowseStore.swift in Sources */,
