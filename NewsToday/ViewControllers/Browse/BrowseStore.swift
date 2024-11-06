@@ -20,10 +20,7 @@ enum BrowseAction {
     case fetchNewsByKeyword(String)
 }
 
-final class BrowseStore: Store<BrowseEvent, BrowseAction> {
-    
-    static let shared = BrowseStore()
-    
+final class BrowseStore: Store<BrowseEvent, BrowseAction> {    
     override func handleActions(action: BrowseAction) {
         switch action {
         case .fetch:

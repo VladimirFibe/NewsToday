@@ -10,9 +10,4 @@ struct NewsDefaults {
         get { UserDefaults.standard.integer(forKey: "currentPage")}
         set { UserDefaults.standard.set(newValue, forKey: "currentPage") }
     }
-    
-    private var accessToken: String {
-        get { UserDefaults.standard.string(forKey: "accessToken") ?? "" }
-        set { UserDefaults.standard.set(newValue, forKey: "accessToken") }
-    }
 }

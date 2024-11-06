@@ -34,12 +34,12 @@ class BookMarksCell: UITableViewCell {
         imageIV.layer.masksToBounds = true
         
         
-        addSubview(imageIV)
-        addSubview(nameLabel)
-        addSubview(titleLabel)
-    
+        contentView.addSubview(imageIV)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(titleLabel)
+        
         imageIV.contentMode = .scaleAspectFill
-
+        
         nameLabel.font = UIFont(name: "Inter-Regular", size: 14)
         nameLabel.textColor = #colorLiteral(red: 0.4900000095, green: 0.5099999905, blue: 0.6299999952, alpha: 1)
         
@@ -47,30 +47,28 @@ class BookMarksCell: UITableViewCell {
         titleLabel.textColor = #colorLiteral(red: 0.200000003, green: 0.2099999934, blue: 0.2800000012, alpha: 1)
         //titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
-       
+        
         
         NSLayoutConstraint.activate([
-            imageIV.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageIV.topAnchor.constraint(equalTo: self.topAnchor),
+            imageIV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageIV.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageIV.widthAnchor.constraint(equalToConstant: 96),
             imageIV.heightAnchor.constraint(equalToConstant: 96),
-            
-            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            imageIV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: imageIV.trailingAnchor, constant: 15),
             
             titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                ])
-        
-        
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
     }
   
     public func configure(with news: News) {
-        
         nameLabel.text = news.sourse?.name
         titleLabel.text = news.title
-        imageIV.image = UIImage(named: news.urlToImage ?? "")
-
+        if let url = news.urlToImage {
+            imageIV.kf.setImage(with: URL(string: url))
+        }
     }
 }
