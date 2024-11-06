@@ -86,6 +86,12 @@ class BookMarksViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         bookMarksTableView.reloadData()
+        
+        if news.isEmpty {
+                bookMarksTableView.tableHeaderView = createHeaderView()
+            } else {
+                bookMarksTableView.tableHeaderView = nil
+            }
     }
     
     
@@ -222,13 +228,24 @@ extension BookMarksViewController: UITableViewDataSource {
 extension BookMarksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {(action, view, complectionHandler) in
-            BookMakrs.shared.bookmarks.remove(at: indexPath.row)
-            self.bookMarksTableView.deleteRows(at: [indexPath], with: .automatic)
-            complectionHandler(true)
-        }
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
+                guard let self = self else { return }
+                
+                // Удаляем статью из закладок
+                BookMakrs.shared.bookmarks.remove(at: indexPath.row)
+                
+                // Удаляем строку из таблицы
+                self.bookMarksTableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                // Проверяем, если больше нет сохранённых статей, обновляем заголовок таблицы
+                if self.news.isEmpty {
+                    self.bookMarksTableView.tableHeaderView = self.createHeaderView()
+                }
+                
+                completionHandler(true)
+            }
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
